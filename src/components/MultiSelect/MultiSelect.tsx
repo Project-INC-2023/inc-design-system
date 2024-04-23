@@ -5,7 +5,6 @@ import React from "react";
 import { Tag } from "../Tag/Tag";
 import { Command, CommandGroup, CommandItem, CommandProps } from "./Command";
 import { Command as CommandPrimitive } from "cmdk";
-import "../styles.css";
 
 import { cn } from "../../lib/utils";
 
