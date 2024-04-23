@@ -4,7 +4,6 @@ import React from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import * as ScrollArea from "@radix-ui/react-scroll-area";
 import { Check, ChevronDown } from "lucide-react";
-import "../styles.css";
 
 import { useVirtualizer } from "@tanstack/react-virtual";
 
