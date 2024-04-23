@@ -32,14 +32,59 @@
             "import": "./dist/index.js"
         },
         "./alert": {
-            "types": "./dist/src/components/alert.d.ts",
-            "require": "./dist/src/components/alert.js",
-            "import": "./dist/src/components/alert.js"
+            "types": "./dist/src/components/Alert/Alert.d.ts",
+            "require": "./dist/src/components/Alert/Alert.js",
+            "import": "./dist/src/components/Alert/Alert.js"
         },
         "./input": {
-            "types": "./dist/src/components/input.d.ts",
-            "require": "./dist/src/components/input.js",
-            "import": "./dist/src/components/input.js"
+            "types": "./dist/src/components/Input/Input.d.ts",
+            "require": "./dist/src/components/Input/Input.js",
+            "import": "./dist/src/components/Input/Input.js"
+        },
+        "./multiselect": {
+            "types": "./dist/src/components/MultiSelect/MultiSelect.d.ts",
+            "require": "./dist/src/components/MultiSelect/MultiSelect.js",
+            "import": "./dist/src/components/MultiSelect/MultiSelect.js"
+        },
+        "./select": {
+            "types": "./dist/src/components/Select/Select.d.ts",
+            "require": "./dist/src/components/Select/Select.js",
+            "import": "./dist/src/components/Select/Select.js"
+        },
+        "./tag": {
+            "types": "./dist/src/components/Tag/Tag.d.ts",
+            "require": "./dist/src/components/Tag/Tag.js",
+            "import": "./dist/src/components/Tag/Tag.js"
+        },
+        "./upload": {
+            "types": "./dist/src/components/Upload/Upload.d.ts",
+            "require": "./dist/src/components/Upload/Upload.js",
+            "import": "./dist/src/components/Upload/Upload.js"
+        },
+        "./switch": {
+            "types": "./dist/src/components/Switch/Switch.d.ts",
+            "require": "./dist/src/components/Switch/Switch.js",
+            "import": "./dist/src/components/Switch/Switch.js"
+        },
+        "./accordion": {
+            "types": "./dist/src/components/Accordion/Accordion.d.ts",
+            "require": "./dist/src/components/Accordion/Accordion.js",
+            "import": "./dist/src/components/Accordion/Accordion.js"
+        },
+        "./scrollableList": {
+            "types": "./dist/src/components/List/ScrollableList/ScrollableList.d.ts",
+            "require": "./dist/src/components/List/ScrollableList/ScrollableList.js",
+            "import": "./dist/src/components/List/ScrollableList/ScrollableList.js"
+        },
+        "./paginatedList": {
+            "types": "./dist/src/components/List/PaginatedList/PaginatedList.d.ts",
+            "require": "./dist/src/components/List/PaginatedList/PaginatedList.js",
+            "import": "./dist/src/components/List/PaginatedList/PaginatedList.js"
+        },
+        "./defaultList": {
+            "types": "./dist/src/components/List/DefaultList/DefaultList.d.ts",
+            "require": "./dist/src/components/List/DefaultList/DefaultList.js",
+            "import": "./dist/src/components/List/DefaultList/DefaultList.js"
         },
         "./popconfirm": {
             "types": "./dist/src/components/PopConfirm/PopConfirm.d.ts",
@@ -60,16 +105,21 @@
         "@types/react": "^18.2.75",
         "@types/react-dom": "^18.2.24",
         "autoprefixer": "^10.4.19",
+        "cmdk": "^0.2.0",
         "tailwindcss": "^3.4.3",
         "tsup": "^8.0.2",
         "typescript": "^5.4.5"
     },
     "peerDependencies": {
+        "@radix-ui/react-scroll-area": "^1.0.5",
+        "@radix-ui/react-select": "^2.0.0",
+        "@tanstack/react-virtual": "^3.4.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
     },
     "dependencies": {
         "@radix-ui/react-popover": "^1.0.7",
+        "@radix-ui/react-accordion": "^1.1.2",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.0",
         "lucide-react": "^0.367.0",
