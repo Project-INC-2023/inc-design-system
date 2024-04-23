@@ -55,6 +55,16 @@
       "types": "./dist/src/components/Tag/Tag.d.ts",
       "require": "./dist/src/components/Tag/Tag.js",
       "import": "./dist/src/components/Tag/Tag.js"
+    },
+    "./upload": {
+            "types": "./dist/src/components/Upload/Upload.d.ts",
+            "require": "./dist/src/components/Upload/Upload.js",
+            "import": "./dist/src/components/Upload/Upload.js"
+    },
+    "./switch": {
+        "types": "./dist/src/components/Switch/Switch.d.ts",
+        "require": "./dist/src/components/Switch/Switch.js",
+        "import": "./dist/src/components/Switch/Switch.js"
     }
   },
   "files": [
