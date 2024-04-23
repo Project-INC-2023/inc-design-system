@@ -1,14 +1,14 @@
+"use client";
+
 import * as Component from "@radix-ui/react-accordion";
 import React from "react";
 import { ChevronDown } from "lucide-react";
 // import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/utils";
-import "./global.css";
 
-export interface Props  
-// extends VariantProps<typeof accordionVariants> 
+export interface Props {
+  // extends VariantProps<typeof accordionVariants>
 
-{
   // data passed in to be an array
   data: data[];
   // only one can be opened at a time?
@@ -22,13 +22,7 @@ export type data = {
   content: string;
 };
 
-
-
-const Accordion = ({
-  single = false,
-  disabled = false,
-  data,
-}: Props) => {
+const Accordion = ({ single = false, disabled = false, data }: Props) => {
   return (
     <Component.Root
       type={single ? "single" : "multiple"}
