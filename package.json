@@ -1,67 +1,86 @@
 {
-    "name": "inc-design-system",
-    "version": "0.0.0",
-    "author": "",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Project-INC-2023/inc-design-system"
+  "name": "inc-design-system",
+  "version": "0.0.0",
+  "author": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Project-INC-2023/inc-design-system"
+  },
+  "description": "",
+  "keywords": [
+    "react",
+    "tailwindcss",
+    "typescript",
+    "ui",
+    "components",
+    "alert",
+    "input"
+  ],
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsup",
+    "changeset": "npx changeset && npx changeset version && npx changeset publish",
+    "fast:publish": "tsup && npx changeset && npx changeset version && npx changeset publish"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.js"
     },
-    "description": "",
-    "keywords": [
-        "react",
-        "tailwindcss",
-        "typescript",
-        "ui",
-        "components",
-        "alert",
-        "input"
-    ],
-    "license": "ISC",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "tsup",
-        "changeset": "npx changeset && npx changeset version && npx changeset publish",
-        "fast:publish": "tsup && npx changeset && npx changeset version && npx changeset publish"
+    "./alert": {
+      "types": "./dist/src/components/Alert/Alert.d.ts",
+      "require": "./dist/src/components/Alert/Alert.js",
+      "import": "./dist/src/components/Alert/Alert.js"
     },
-    "exports": {
-        ".": {
-            "types": "./dist/index.d.ts",
-            "require": "./dist/index.js",
-            "import": "./dist/index.js"
-        },
-        "./alert": {
-            "types": "./dist/src/components/alert.d.ts",
-            "require": "./dist/src/components/alert.js",
-            "import": "./dist/src/components/alert.js"
-        },
-        "./input": {
-            "types": "./dist/src/components/input.d.ts",
-            "require": "./dist/src/components/input.js",
-            "import": "./dist/src/components/input.js"
-        }
+    "./input": {
+      "types": "./dist/src/components/Input/Input.d.ts",
+      "require": "./dist/src/components/Input/Input.js",
+      "import": "./dist/src/components/Input/Input.js"
     },
-    "files": [
-        "dist"
-    ],
-    "devDependencies": {
-        "@changesets/cli": "^2.27.1",
-        "@types/react": "^18.2.75",
-        "@types/react-dom": "^18.2.24",
-        "autoprefixer": "^10.4.19",
-        "tailwindcss": "^3.4.3",
-        "tsup": "^8.0.2",
-        "typescript": "^5.4.5"
+    "./multiselect": {
+      "types": "./dist/src/components/MultiSelect/MultiSelect.d.ts",
+      "require": "./dist/src/components/MultiSelect/MultiSelect.js",
+      "import": "./dist/src/components/MultiSelect/MultiSelect.js"
     },
-    "peerDependencies": {
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+    "./select": {
+      "types": "./dist/src/components/Select/Select.d.ts",
+      "require": "./dist/src/components/Select/Select.js",
+      "import": "./dist/src/components/Select/Select.js"
     },
-    "dependencies": {
-        "class-variance-authority": "^0.7.0",
-        "clsx": "^2.1.0",
-        "lucide-react": "^0.367.0",
-        "tailwind-merge": "^2.2.2"
+    "./tag": {
+      "types": "./dist/src/components/Tag/Tag.d.ts",
+      "require": "./dist/src/components/Tag/Tag.js",
+      "import": "./dist/src/components/Tag/Tag.js"
     }
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "@types/react": "^18.2.75",
+    "@types/react-dom": "^18.2.24",
+    "autoprefixer": "^10.4.19",
+    "cmdk": "^0.2.0",
+    "tailwindcss": "^3.4.3",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {
+    "@radix-ui/react-scroll-area": "^1.0.5",
+    "@radix-ui/react-select": "^2.0.0",
+    "@tanstack/react-virtual": "^3.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "lucide-react": "^0.367.0",
+    "tailwind-merge": "^2.2.2"
+  }
 }
