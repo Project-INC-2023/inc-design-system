@@ -60,6 +60,11 @@
             "types": "./dist/src/components/Upload/Upload.d.ts",
             "require": "./dist/src/components/Upload/Upload.js",
             "import": "./dist/src/components/Upload/Upload.js"
+    },
+    "./switch": {
+        "types": "./dist/src/components/Switch/Switch.d.ts",
+        "require": "./dist/src/components/Switch/Switch.js",
+        "import": "./dist/src/components/Switch/Switch.js"
     }
   },
   "files": [
