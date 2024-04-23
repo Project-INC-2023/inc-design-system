@@ -40,6 +40,11 @@
             "types": "./dist/src/components/input.d.ts",
             "require": "./dist/src/components/input.js",
             "import": "./dist/src/components/input.js"
+        },
+        "./upload": {
+            "types": "./dist/src/components/upload.d.ts",
+            "require": "./dist/src/components/upload.js",
+            "import": "./dist/src/components/upload.js"
         }
     },
     "files": [
