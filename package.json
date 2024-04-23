@@ -40,6 +40,16 @@
             "types": "./dist/src/components/input.d.ts",
             "require": "./dist/src/components/input.js",
             "import": "./dist/src/components/input.js"
+        },
+        "./popconfirm": {
+            "types": "./dist/src/components/PopConfirm/PopConfirm.d.ts",
+            "require": "./dist/src/components/PopConfirm/PopConfirm.js",
+            "import": "./dist/src/components/PopConfirm/PopConfirm.js"
+        },
+        "./spinner": {
+            "types": "./dist/src/components/Spinner/Spinner.d.ts",
+            "require": "./dist/src/components/Spinner/Spinner.js",
+            "import": "./dist/src/components/Spinner/Spinner.js"
         }
     },
     "files": [
@@ -59,6 +69,7 @@
         "react-dom": "^18.2.0"
     },
     "dependencies": {
+        "@radix-ui/react-popover": "^1.0.7",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.0",
         "lucide-react": "^0.367.0",
