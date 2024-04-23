@@ -40,6 +40,11 @@
             "types": "./dist/src/components/input.d.ts",
             "require": "./dist/src/components/input.js",
             "import": "./dist/src/components/input.js"
+        },
+        "./switch": {
+            "types": "./dist/src/components/switch.d.ts",
+            "require": "./dist/src/components/switch.js",
+            "import": "./dist/src/components/switch.js"
         }
     },
     "files": [
