@@ -1,0 +1,67 @@
+{
+    "name": "inc-design-system",
+    "version": "0.0.0",
+    "author": "",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Project-INC-2023/inc-design-system"
+    },
+    "description": "",
+    "keywords": [
+        "react",
+        "tailwindcss",
+        "typescript",
+        "ui",
+        "components",
+        "alert",
+        "input"
+    ],
+    "license": "ISC",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "tsup",
+        "changeset": "npx changeset && npx changeset version && npx changeset publish",
+        "fast:publish": "tsup && npx changeset && npx changeset version && npx changeset publish"
+    },
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "require": "./dist/index.js",
+            "import": "./dist/index.js"
+        },
+        "./alert": {
+            "types": "./dist/src/components/alert.d.ts",
+            "require": "./dist/src/components/alert.js",
+            "import": "./dist/src/components/alert.js"
+        },
+        "./input": {
+            "types": "./dist/src/components/input.d.ts",
+            "require": "./dist/src/components/input.js",
+            "import": "./dist/src/components/input.js"
+        }
+    },
+    "files": [
+        "dist"
+    ],
+    "devDependencies": {
+        "@changesets/cli": "^2.27.1",
+        "@types/react": "^18.2.75",
+        "@types/react-dom": "^18.2.24",
+        "autoprefixer": "^10.4.19",
+        "tailwindcss": "^3.4.3",
+        "tsup": "^8.0.2",
+        "typescript": "^5.4.5"
+    },
+    "peerDependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "dependencies": {
+        "class-variance-authority": "^0.7.0",
+        "clsx": "^2.1.0",
+        "lucide-react": "^0.367.0",
+        "tailwind-merge": "^2.2.2"
+    }
+}
