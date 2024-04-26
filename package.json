@@ -85,6 +85,11 @@
             "types": "./dist/src/components/List/DefaultList/DefaultList.d.ts",
             "require": "./dist/src/components/List/DefaultList/DefaultList.js",
             "import": "./dist/src/components/List/DefaultList/DefaultList.js"
+        },
+        "./button": {
+            "types": "./dist/src/components/Button/Button.d.ts",
+            "require": "./dist/src/components/Button/Button.js",
+            "import": "./dist/src/components/Button/Button.js"
         }
     },
     "files": [
@@ -103,6 +108,7 @@
     "peerDependencies": {
         "@radix-ui/react-scroll-area": "^1.0.5",
         "@radix-ui/react-select": "^2.0.0",
+        "@radix-ui/react-slot": "^1.0.0",
         "@tanstack/react-virtual": "^3.4.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
