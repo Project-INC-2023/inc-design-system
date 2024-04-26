@@ -90,6 +90,11 @@
             "types": "./dist/src/components/Button/Button.d.ts",
             "require": "./dist/src/components/Button/Button.js",
             "import": "./dist/src/components/Button/Button.js"
+        },
+        "./checkbox": {
+            "types": "./dist/src/components/Checkbox/Checkbox.d.ts",
+            "require": "./dist/src/components/Checkbox/Checkbox.js",
+            "import": "./dist/src/components/Checkbox/Checkbox.js"
         }
     },
     "files": [
@@ -106,6 +111,7 @@
         "typescript": "^5.4.5"
     },
     "peerDependencies": {
+        "@radix-ui/react-checkbox": "^1.0.4",
         "@radix-ui/react-scroll-area": "^1.0.5",
         "@radix-ui/react-select": "^2.0.0",
         "@radix-ui/react-slot": "^1.0.0",
