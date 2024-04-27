@@ -28,8 +28,7 @@ const Accordion = ({
   return (
     <Component.Root
       type={single ? "single" : "multiple"}
-      className="rounded-lg border-1 border-grey-200"
-      collapsible
+      className="rounded-lg  border-1 border-grey-200"
       disabled={disabled}
     >
 
@@ -68,7 +67,7 @@ const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(
   ({ children, className, ...props }, forwardedRef) => (
     <Component.Item
       className={cn(
-        "mt-px overflow-hidden bg-white first:mt-0 first:rounded-t last:rounded-b focus-within:relative focus-within:z-10 focus-within:shadow-[0_0_0_2px]",
+        "mt-px overflow-hidden bg-white first:mt-0 first:rounded-lg-t last:rounded-xl-b focus-within:relative focus-within:z-10 focus-within:shadow-[0_0_0_2px]",
         className
       )}
       {...props}
@@ -108,19 +107,19 @@ const AccordionContent = React.forwardRef<
 >(({ children, className, ...props }, forwardedRef) => (
   <Component.Content
     className={cn(
-      "bg-white p-1 data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp text-contentText",
+      "bg-white animate-slideDown data-[state=open]:animate-slideDown animate-slideUp data-[state=closed]:animate-slideUp",
       className
     )}
     {...props}
     ref={forwardedRef}
   >
     {/* Ensure flex container for horizontal layout */}
-    <div className="flex items-center bg-white p-4">
+    <div className="flex items-center">
       {/* Simplified bg-contentBar styling */}
       <div className="bg-primary w-1 h-full rounded-full mr-2" />
 
       {/* Content area with overflow visible for long content */}
-      <div className="py-[15px] px-5 ">{children}</div>
+      <div className="py-[15px] px-4 ">{children}</div>
     </div>
   </Component.Content>
 ));
