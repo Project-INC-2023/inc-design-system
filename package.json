@@ -95,6 +95,11 @@
             "types": "./dist/src/components/Checkbox/Checkbox.d.ts",
             "require": "./dist/src/components/Checkbox/Checkbox.js",
             "import": "./dist/src/components/Checkbox/Checkbox.js"
+        },
+        "./textarea": {
+            "types": "./dist/src/components/Textarea/Textarea.d.ts",
+            "require": "./dist/src/components/Textarea/Textarea.js",
+            "import": "./dist/src/components/Textarea/Textarea.js"
         }
     },
     "files": [
