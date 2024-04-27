@@ -1,7 +1,6 @@
 "use client";
 
-import * as React from "react";
-
+import React from "react";
 import { cn } from "@/lib/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
@@ -21,7 +20,6 @@ const inputVariants = cva(
     },
   }
 );
-
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     VariantProps<typeof inputVariants> {
