@@ -5,12 +5,15 @@ import React from "react";
 import { ChevronDown } from "lucide-react";
 // import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/utils";
+import { LucideIcon } from "lucide-react";
+
 
 export interface Props extends Component.PrimitiveDivProps {
   // extends VariantProps<typeof accordionVariants>
 
   // data passed in to be an array
   headers: string[];
+  icons: LucideIcon[];
   // only one can be opened at a time?
   single?: boolean;
   disabled?: boolean;
