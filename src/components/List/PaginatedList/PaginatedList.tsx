@@ -7,7 +7,6 @@ import React, { forwardRef, useEffect } from "react";
 import { cn } from "../../../lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 
-
 const paginatedVariant = cva("flex", {
   variants: {
     variant: {
@@ -26,11 +25,11 @@ export interface PaginatedListProps
   children: React.ReactNode;
   header?: string;
   horizontal?: boolean;
+  className?: string;
 }
 
 const PaginatedList = forwardRef<HTMLDivElement, PaginatedListProps>(
-  ({ children, variant, ...props }, forwardRef) => {
-    
+  ({ children, className, variant, ...props }, forwardRef) => {
     // Storage of info of pages
     // So that user can pass their own children
 
@@ -73,11 +72,10 @@ const PaginatedList = forwardRef<HTMLDivElement, PaginatedListProps>(
     };
 
     return (
-      <div className="">
+      <div className={cn("", className)}>
         {props.header && <Header header={props.header} />}
-        <div className={cn(paginatedVariant({ variant }))}>
+        <div className={cn(paginatedVariant({ variant }), className)}>
           {currentPosts.map((item, index) => {
-
             return <div key={index}>{item}</div>;
           })}
         </div>
