@@ -116,7 +116,7 @@
       "require": "./dist/src/components/Textarea/Textarea.js",
       "import": "./dist/src/components/Textarea/Textarea.js"
     },
-    "./Popover": {
+    "./popover": {
       "types": "./dist/src/components/Popover/Popover.d.ts",
       "require": "./dist/src/components/Popover/Popover.js",
       "import": "./dist/src/components/Popover/Popover.js"
