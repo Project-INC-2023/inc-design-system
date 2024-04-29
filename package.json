@@ -105,6 +105,11 @@
       "types": "./dist/src/components/Textarea/Textarea.d.ts",
       "require": "./dist/src/components/Textarea/Textarea.js",
       "import": "./dist/src/components/Textarea/Textarea.js"
+    },
+    "./badge": {
+      "types": "./dist/src/components/Badge/Badge.d.ts",
+      "require": "./dist/src/components/Badge/Badge.js",
+      "import": "./dist/src/components/Badge/Badge.js"
     }
   },
   "files": [
