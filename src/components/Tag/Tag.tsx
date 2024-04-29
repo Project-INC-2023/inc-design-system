@@ -30,18 +30,52 @@ const tagVariants = cva(
 interface TagProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof tagVariants> {
-  closeable?: boolean; // Whether the Tag can be closed. Default is false. If true, a close button will be displayed.
-  onClose?: () => void; // Callback when the Tag is closed
-  icon?: React.ReactNode; // Icon to display alongside the Tag text. Default is null.
-  disabled?: boolean; // Whether the Tag is disabled. Default is false.
-  border?: boolean; // Whether the Tag has a border. Default is true.
+  /**
+   * Whether the Tag can be closed. If true, a close button will be displayed.
+   * @default false
+   */
+  closeable?: boolean;
+  /**
+   * Callback when the Tag is closed
+   */
+  onClose?: () => void;
+  /**
+   * Icon to display alongside the Tag text.
+   * @default null
+   */
+  icon?: React.ReactNode;
+  /**
+   * Whether the Tag is disabled.
+   * @default false
+   */
+  disabled?: boolean;
+  /**
+   * Whether the Tag has a border.
+   * @default true
+   */
+  border?: boolean;
 }
 
 interface CheckableTagProps extends TagProps {
-  checked?: boolean; // Whether the Tag is checked by default. Default is false.
-  checkedBackgroundColor?: string; // Background color when Tag is checked. Default is "#DDD2F0".
-  checkedTextColor?: string; // Text color when Tag is checked. Default is "#482384".
-  onClickTag?: (isChecked: boolean) => void; // Callback when the Tag is clicked
+  /**
+   * Whether the Tag is checked by default.
+   * @default false
+   */
+  checked?: boolean;
+  /**
+   * Background color when Tag is checked.
+   * @default "#DDD2F0"
+   */
+  checkedBackgroundColor?: string;
+  /**
+   * Text color when Tag is checked.
+   * @default "#482384"
+   */
+  checkedTextColor?: string;
+  /**
+   * Callback when the Tag is clicked
+   */
+  onClickTag?: (isChecked: boolean) => void;
 }
 
 function Tag({
