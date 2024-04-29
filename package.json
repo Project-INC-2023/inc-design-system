@@ -116,6 +116,11 @@
       "require": "./dist/src/components/Textarea/Textarea.js",
       "import": "./dist/src/components/Textarea/Textarea.js"
     },
+    "./badge": {
+      "types": "./dist/src/components/Badge/Badge.d.ts",
+      "require": "./dist/src/components/Badge/Badge.js",
+      "import": "./dist/src/components/Badge/Badge.js"
+    },
     "./popover": {
       "types": "./dist/src/components/Popover/Popover.d.ts",
       "require": "./dist/src/components/Popover/Popover.js",
