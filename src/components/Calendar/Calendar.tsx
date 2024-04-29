@@ -2,7 +2,7 @@
 
 import React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { DayPicker } from "react-day-picker";
+import { DateRange, DayPicker } from "react-day-picker";
 
 import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "../Button/Button";
@@ -17,17 +17,23 @@ import { addMonths, isSameMonth } from "date-fns";
  * @property {boolean} [showOutsideDays] - Whether to show outside days or not.
  * @property {Date} [today] - The current date.
  * @property {React.ReactNode} [footer] - The footer of the calendar.
- * @property {Date} [selected] - The selected date.
- * @property {(date: Date) => void} [onSelect] - The function to call when a date is selected. If a date is unselected, this function is called with `undefined`.
+ * @property {Date | Date[] | CalendarDateRange | undefined} [selected] - The selected date. Type `Date` for "single" mode, `Date[]` for "multiple" mode, and `CalendarDateRange` for "range" mode.
+ * @property {(selected: Date | Date[] | CalendarDateRange | undefined) => void} [onSelect] - Callback function that is called when a date or a range of dates is selected.
+ * The type of the parameter depends on the mode:
+ * - For 'single' mode, the parameter is `Date | undefined`
+ * - For 'multiple' mode, the parameter is `Date[] | undefined`
+ * - For 'range' mode, the parameter is `CalendarDateRange | undefined`
+ *
  * @property {(date: Date) => void} [onDayClick] - The function to call when a day is clicked. This function is always called with the clicked date, even if the date is unselected.
  * @property {Date[]} [disabled] - The dates that should be disabled.
  * @property {Date[]} [hidden] - The dates that should be hidden.
  * @property {"single" | "multiple" | "range"} [mode] - The selection mode. Default is "single". If "multiple", the calendar allows multiple dates to be selected. If "range", the calendar allows a range of dates to be selected.
  * @property {object} [props] - The other props for the calendar.
  */
-export type CalendarProps = React.ComponentProps<typeof DayPicker>;
+type CalendarProps = React.ComponentProps<typeof DayPicker>;
+type CalendarDateRange = DateRange;
 
-function Calendar({
+const Calendar = ({
   className,
   classNames,
   showOutsideDays = true,
@@ -36,7 +42,7 @@ function Calendar({
   hidden = [],
   onDayClick,
   ...props
-}: CalendarProps) {
+}: CalendarProps) => {
   const nextMonth = addMonths(today, 1);
   const [month, setMonth] = React.useState<Date>(nextMonth);
 
@@ -103,7 +109,7 @@ function Calendar({
       {...props}
     />
   );
-}
+};
 Calendar.displayName = "Calendar";
 
-export { Calendar };
+export { Calendar, CalendarProps, CalendarDateRange };
