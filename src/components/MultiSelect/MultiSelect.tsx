@@ -14,24 +14,89 @@ interface MultiSelectItem {
 }
 
 interface MultiSelectProps extends CommandProps {
-  items: MultiSelectItem[]; // Array of items to be displayed in the multi-select
-  selectedItems?: MultiSelectItem[]; // Array of initially selected items
-  placeholderText?: string; // Placeholder text displayed when no items are selected
-  notFoundText?: string; // Text displayed when no items match the search criteria
-  tagVariant?: "default" | "primary" | "secondary"; // Variant for the tag displayed for selected items
-  tagClassName?: string; // Additional class name for the tag component
-  width?: React.CSSProperties["width"]; // Width of the multi-select
-  inputHeight?: React.CSSProperties["height"]; // Height of the input field
-  dropdownMaxHeight?: React.CSSProperties["height"]; // Maximum height of the dropdown
-  inputScrollable?: boolean; // Whether the input field should be scrollable
-  maxSelectedItems?: number; // Maximum number of items that can be selected
-  hidePlaceholderWhenSelected?: boolean; // Whether to hide the placeholder when items are selected
-  disabled?: boolean; // Whether the multi-select is disabled
-  defaultOpen?: boolean; // Whether the dropdown should be open by default
-  onMaxSelected?: (maxLimit: number) => void; // Callback when the maximum number of items is reached
-  onSelectItem?: (item: MultiSelectItem) => void; // Callback when an item is selected
-  onUnselectItem?: (item: MultiSelectItem) => void; // Callback when an item is unselected
-  onOpen?: (open: boolean) => void; // Callback when the dropdown is opened or closed
+  /**
+   * Array of items to be displayed in the multi-select
+   */
+  items: MultiSelectItem[];
+  /**
+   * Array of initially selected items
+   */
+  selectedItems?: MultiSelectItem[];
+  /**
+   * Placeholder text displayed when no items are selected
+   * @default "Select items..."
+   */
+  placeholderText?: string;
+  /**
+   * Text displayed when no items match the search criteria
+   */
+  notFoundText?: string;
+  /**
+   * Variant for the tag displayed for selected items
+   * @default "default"
+   */
+  tagVariant?: "default" | "primary" | "secondary";
+  /**
+   * Additional class name for the tag component
+   * @default ""
+   */
+  tagClassName?: string;
+  /**
+   * Width of the multi-select
+   * @default "512px"
+   */
+  width?: React.CSSProperties["width"];
+  /**
+   * Height of the input field
+   * @default "40px"
+   */
+  inputHeight?: React.CSSProperties["height"];
+  /**
+   * Maximum height of the dropdown
+   * @default "384px"
+   */
+  dropdownMaxHeight?: React.CSSProperties["height"];
+  /**
+   * Whether the input field should be scrollable
+   * @default false
+   */
+  inputScrollable?: boolean;
+  /**
+   * Maximum number of items that can be selected
+   * @default Number.MAX_SAFE_INTEGER
+   */
+  maxSelectedItems?: number;
+  /**
+   * Whether to hide the placeholder when items are selected
+   * @default false
+   */
+  hidePlaceholderWhenSelected?: boolean;
+  /**
+   * Whether the multi-select is disabled
+   * @default false
+   */
+  disabled?: boolean;
+  /**
+   * Whether the dropdown should be open by default
+   * @default false
+   */
+  defaultOpen?: boolean;
+  /**
+   * Callback when the maximum number of items is reached
+   */
+  onMaxSelected?: (maxLimit: number) => void;
+  /**
+   * Callback when an item is selected
+   */
+  onSelectItem?: (item: MultiSelectItem) => void;
+  /**
+   * Callback when an item is unselected
+   */
+  onUnselectItem?: (item: MultiSelectItem) => void;
+  /**
+   * Callback when the dropdown is opened or closed
+   */
+  onOpen?: (open: boolean) => void;
 }
 
 const MultiSelect = ({

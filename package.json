@@ -86,6 +86,16 @@
       "require": "./dist/src/components/List/DefaultList/DefaultList.js",
       "import": "./dist/src/components/List/DefaultList/DefaultList.js"
     },
+    "./popconfirm": {
+      "types": "./dist/src/components/PopConfirm/PopConfirm.d.ts",
+      "require": "./dist/src/components/PopConfirm/PopConfirm.js",
+      "import": "./dist/src/components/PopConfirm/PopConfirm.js"
+    },
+    "./spinner": {
+      "types": "./dist/src/components/Spinner/Spinner.d.ts",
+      "require": "./dist/src/components/Spinner/Spinner.js",
+      "import": "./dist/src/components/Spinner/Spinner.js"
+    },
     "./button": {
       "types": "./dist/src/components/Button/Button.d.ts",
       "require": "./dist/src/components/Button/Button.js",
@@ -110,6 +120,11 @@
       "types": "./dist/src/components/Badge/Badge.d.ts",
       "require": "./dist/src/components/Badge/Badge.js",
       "import": "./dist/src/components/Badge/Badge.js"
+    },
+    "./popover": {
+      "types": "./dist/src/components/Popover/Popover.d.ts",
+      "require": "./dist/src/components/Popover/Popover.js",
+      "import": "./dist/src/components/Popover/Popover.js"
     }
   },
   "files": [
@@ -136,6 +151,7 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
+    "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-accordion": "^1.1.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
