@@ -8,6 +8,22 @@ import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "../Button/Button";
 import { addMonths, isSameMonth } from "date-fns";
 
+/**
+ * Props used so far for the Calendar component
+ * @typedef CalendarProps
+ * @type {object}
+ * @property {string} [className] - The class name of the calendar.
+ * @property {object} [classNames] - The class names for the calendar.
+ * @property {boolean} [showOutsideDays] - Whether to show outside days or not.
+ * @property {Date} [today] - The current date.
+ * @property {React.ReactNode} [footer] - The footer of the calendar.
+ * @property {Date} [selected] - The selected date.
+ * @property {(date: Date) => void} [onSelect] - The function to call when a date is selected. If a date is unselected, this function is called with `undefined`.
+ * @property {(date: Date) => void} [onDayClick] - The function to call when a day is clicked. This function is always called with the clicked date, even if the date is unselected.
+ * @property {Date[]} [disabled] - The dates that should be disabled.
+ * @property {Date[]} [hidden] - The dates that should be hidden.
+ * @property {object} [props] - The other props for the calendar.
+ */
 export type CalendarProps = React.ComponentProps<typeof DayPicker>;
 
 function Calendar({
@@ -15,6 +31,9 @@ function Calendar({
   classNames,
   showOutsideDays = true,
   today = new Date(),
+  disabled = [],
+  hidden = [],
+  onDayClick,
   ...props
 }: CalendarProps) {
   const nextMonth = addMonths(today, 1);
@@ -39,6 +58,9 @@ function Calendar({
       month={month}
       onMonthChange={setMonth}
       footer={footer}
+      disabled={disabled}
+      hidden={hidden}
+      onDayClick={onDayClick}
       className={cn("p-3", className)}
       classNames={{
         months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
