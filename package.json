@@ -125,6 +125,11 @@
       "types": "./dist/src/components/Calendar/Calendar.d.ts",
       "require": "./dist/src/components/Calendar/Calendar.js",
       "import": "./dist/src/components/Calendar/Calendar.js"
+    },
+    "./datePicker": {
+      "types": "./dist/src/components/DatePicker/DatePicker.d.ts",
+      "require": "./dist/src/components/DatePicker/DatePicker.js",
+      "import": "./dist/src/components/DatePicker/DatePicker.js"
     }
   },
   "files": [
