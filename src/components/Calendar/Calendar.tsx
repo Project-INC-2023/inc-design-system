@@ -1,11 +1,12 @@
 "use client";
 
-import * as React from "react";
+import React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { DayPicker } from "react-day-picker";
 
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "../Button/Button";
+import { Button, buttonVariants } from "../Button/Button";
+import { addMonths, isSameMonth } from "date-fns";
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>;
 
@@ -13,11 +14,31 @@ function Calendar({
   className,
   classNames,
   showOutsideDays = true,
+  today = new Date(),
   ...props
 }: CalendarProps) {
+  const nextMonth = addMonths(today, 1);
+  const [month, setMonth] = React.useState<Date>(nextMonth);
+
+  const footer = (
+    <div className="border-t border-grey-300 flex justify-center items-center">
+      <Button
+        disabled={isSameMonth(today, month)}
+        onClick={() => setMonth(today)}
+        variant="text"
+        className="text-primary hover:text-primary-accent focus:text-primary-accent hover:bg-transparent"
+      >
+        Today
+      </Button>
+    </div>
+  );
+
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
+      month={month}
+      onMonthChange={setMonth}
+      footer={footer}
       className={cn("p-3", className)}
       classNames={{
         months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
