@@ -22,6 +22,7 @@ import { addMonths, isSameMonth } from "date-fns";
  * @property {(date: Date) => void} [onDayClick] - The function to call when a day is clicked. This function is always called with the clicked date, even if the date is unselected.
  * @property {Date[]} [disabled] - The dates that should be disabled.
  * @property {Date[]} [hidden] - The dates that should be hidden.
+ * @property {"single" | "multiple" | "range"} [mode] - The selection mode. Default is "single". If "multiple", the calendar allows multiple dates to be selected. If "range", the calendar allows a range of dates to be selected.
  * @property {object} [props] - The other props for the calendar.
  */
 export type CalendarProps = React.ComponentProps<typeof DayPicker>;
@@ -91,7 +92,7 @@ function Calendar({
           "day-outside text-grey-400 opacity-50 aria-selected:bg-primary/50 aria-selected:text-text-light aria-selected:opacity-30",
         day_disabled: "text-grey-400 opacity-50",
         day_range_middle:
-          "aria-selected:bg-primary-accent aria-selected:text-grey-200",
+          "aria-selected:bg-primary aria-selected:text-text-light",
         day_hidden: "invisible",
         ...classNames,
       }}
