@@ -120,6 +120,11 @@
       "types": "./dist/src/components/Popover/Popover.d.ts",
       "require": "./dist/src/components/Popover/Popover.js",
       "import": "./dist/src/components/Popover/Popover.js"
+    },
+    "./calendar": {
+      "types": "./dist/src/components/Calendar/Calendar.d.ts",
+      "require": "./dist/src/components/Calendar/Calendar.js",
+      "import": "./dist/src/components/Calendar/Calendar.js"
     }
   },
   "files": [
@@ -142,12 +147,14 @@
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.0",
     "@tanstack/react-virtual": "^3.4.0",
+    "date-fns": "^3.6.0",
     "react": "^18.2.0",
+    "react-day-picker": "^8.10.1",
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-popover": "^1.0.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "lucide-react": "^0.367.0",
