@@ -95,7 +95,7 @@ const Calendar = ({
           "bg-primary text-text-light hover:bg-primary-accent hover:text-grey-100 focus:bg-primary focus:text-light rounded-md",
         day_today: "bg-primary-accent text-text-default",
         day_outside:
-          "day-outside text-grey-400 opacity-50 aria-selected:bg-primary/50 aria-selected:text-text-light aria-selected:opacity-30",
+          "day-outside text-grey-400 opacity-50 aria-selected:bg-primary/50 aria-selected:text-background aria-selected:opacity-30",
         day_disabled: "text-grey-400 opacity-50",
         day_range_middle:
           "aria-selected:bg-primary aria-selected:text-text-light",
