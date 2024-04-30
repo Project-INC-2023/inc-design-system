@@ -44,16 +44,16 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
       overflowCount = 1000,
       processing = false,
       className,
-      variant
+      variant,
     },
     forwardRef
   ) => {
     return (
-      <>
+      <div>
         <div
           className={cn(
             className,
-            "inline-block relative",
+            "inline-flex relative",
             // visually better but kinda changes the whole padding
             dot ? "p-1" : "p-3"
           )}
@@ -97,7 +97,7 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
             <div className="inline-block">{children}</div>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 );
