@@ -68,7 +68,7 @@ const Calendar = ({
       disabled={disabled}
       hidden={hidden}
       onDayClick={onDayClick}
-      className={cn("p-3", className)}
+      className={cn("p-3 bg-background", className)}
       classNames={{
         months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
         month: "space-y-4",
