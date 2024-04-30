@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import React, { FC } from 'react'
 import { Loader2, LucideProps } from 'lucide-react'
@@ -18,4 +18,4 @@ const Spinner: FC<SpinnerProps> = ({ className, ...props }) => {
   )
 }
 
-export default Spinner;
+export {Spinner};
