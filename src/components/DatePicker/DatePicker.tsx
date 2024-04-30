@@ -57,6 +57,7 @@ const DatePicker = ({
           className={cn(
             "w-[280px] justify-start text-left font-normal",
             !date && "text-grey-400",
+            "border-primary hover:text-primary",
             buttonClassName
           )}
           disabled={disabled}
@@ -65,7 +66,7 @@ const DatePicker = ({
           {date ? format(date, "PPP") : <span>{placeholder}</span>}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-auto p-0">
+      <PopoverContent className="w-auto p-0 z-50">
         <Calendar
           mode="single"
           selected={date}
