@@ -32,7 +32,7 @@ const DefaultList = forwardRef<HTMLDivElement, Props>(
         <div
           className={cn(
             "divide-y divide-grey-300",
-            itemsPerRow >= 1 && itemsPerRow <= 12  ? `grid grid-cols-${itemsPerRow} md:grid-cols-${itemsPerRow - 1 } sm:grid-cols-${itemsPerRow - 2 } ` : "flex flex-col"
+            itemsPerRow > 1 && itemsPerRow <= 12  ? `grid grid-cols-${itemsPerRow} md:grid-cols-${itemsPerRow - 1 } ` : "flex flex-col"
           )}
         >
           {childrenArray.map((child, index) => (

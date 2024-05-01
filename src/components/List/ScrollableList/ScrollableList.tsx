@@ -16,7 +16,7 @@ export type virtualizerProps = {
 
 const ScrollableList = React.forwardRef<HTMLDivElement, virtualizerProps>(
   (
-    { children, className, width = "full", height = "400px", header, footer, ...props },
+    { children, className, width = "full", height = "400px", header, footer, horizontal = false, ...props },
     forwardedRef
   ) => {
     const parentRef = React.useRef<HTMLDivElement>(null);
@@ -24,7 +24,7 @@ const ScrollableList = React.forwardRef<HTMLDivElement, virtualizerProps>(
     const childrenArray = React.Children.toArray(children);
 
     const virtualizer = useVirtualizer({
-      horizontal: props.horizontal ?? false,
+      horizontal: horizontal,
       count: childrenArray.length,
       getScrollElement: () => parentRef.current,
       estimateSize: () => 50,
@@ -43,20 +43,22 @@ const ScrollableList = React.forwardRef<HTMLDivElement, virtualizerProps>(
             overflow: "auto",
           }}
           className={cn(
-            "bg-grey-100 py-3 px-5 data-[state=open]:text-primary flex flex-row justify-between min-h-0 w-full group",
+            "bg-grey-100 data-[state=open]:text-primary flex flex-row justify-between w-full group",
             className
           )}
         >
           <div
-            style={{
-              height: props.horizontal
-                ? "100%"
-                : `${virtualizer.getTotalSize()}px`,
-              width: props.horizontal
-                ? `${virtualizer.getTotalSize()}px`
-                : "100%",
-              position: "relative",
-            }}
+            // style={{
+            //   height: props.horizontal
+            //     ? "100%"
+            //     : `${virtualizer.getTotalSize()}px`,
+            //   width: props.horizontal
+            //     ? `${virtualizer.getTotalSize()}px`
+            //     : "100%",
+            //   position: "relative",
+            // }}
+
+            className={cn("relative", horizontal ? `w-[${virtualizer.getTotalSize()}px] h-full` : `h-[${virtualizer.getTotalSize()}px] w-full`)}
           >
             {items.map((virtualItem) => {
               const child = childrenArray[virtualItem.index];
@@ -70,12 +72,13 @@ const ScrollableList = React.forwardRef<HTMLDivElement, virtualizerProps>(
                   data-index={virtualItem.index}
                   ref={virtualizer.measureElement}
                   style={{
-                    position: props.horizontal ? "absolute" : "relative",
-                    height: props.horizontal ? "100%" : "",
-                    transform: props.horizontal
+                    position: horizontal ? "absolute" : "relative",
+                    height: horizontal ? "100%" : "",
+                    transform: horizontal
                       ? `translateX(${virtualItem.start}px)`
                       : "",
                   }}
+                  // className={cn(horizontal ? `absolute h-full translate-x-[${virtualItem.start}px]`: "relative")}
                 >
                   <div className="">{children}</div>
                 </div>
