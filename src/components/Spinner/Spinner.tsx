@@ -2,7 +2,6 @@
 import React, { FC } from 'react'
 import { Loader2, LucideProps } from 'lucide-react'
 import { cn } from '../../lib/utils'
-// import "../styles.css";
 
 interface SpinnerProps extends LucideProps {
   size?: number,
