@@ -11,6 +11,11 @@ import { Popover, PopoverContent, PopoverTrigger } from "../Popover/Popover";
 
 type DatePickerProps = {
   /**
+   * The current date.
+   * @default new Date()
+   */
+  today?: Date;
+  /**
    * The currently selected date. If a date is selected, it will be displayed in the date picker. If no date is selected, the placeholder text will be displayed instead.
    */
   selected?: Date;
@@ -35,6 +40,7 @@ type DatePickerProps = {
   buttonClassName?: string;
 };
 const DatePicker = ({
+  today = new Date(),
   selected,
   onSelect,
   placeholder = "Pick a date",
@@ -68,6 +74,7 @@ const DatePicker = ({
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0 z-50">
         <Calendar
+          today={today}
           mode="single"
           selected={date}
           onSelect={handleOnSelect}
