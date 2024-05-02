@@ -6,7 +6,7 @@ import { DateRange, DayPicker } from "react-day-picker";
 
 import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "../Button/Button";
-import { addMonths, isSameMonth } from "date-fns";
+import { isSameMonth } from "date-fns";
 
 /**
  * Props used so far for the Calendar component
@@ -40,17 +40,19 @@ const Calendar = ({
   today = new Date(),
   disabled = [],
   hidden = [],
+  month,
   onDayClick,
   ...props
 }: CalendarProps) => {
-  const nextMonth = addMonths(today, 1);
-  const [month, setMonth] = React.useState<Date>(nextMonth);
+  const [monthDisplayed, setMonthDisplayed] = React.useState<Date>(
+    month || today
+  );
 
   const footer = (
     <div className="border-t border-grey-300 flex justify-center items-center">
       <Button
-        disabled={isSameMonth(today, month)}
-        onClick={() => setMonth(today)}
+        disabled={isSameMonth(today, monthDisplayed)}
+        onClick={() => setMonthDisplayed(today)}
         variant="text"
         className="text-primary hover:text-primary-accent focus:text-primary-accent hover:bg-transparent"
       >
@@ -62,8 +64,8 @@ const Calendar = ({
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
-      month={month}
-      onMonthChange={setMonth}
+      month={monthDisplayed}
+      onMonthChange={setMonthDisplayed}
       footer={footer}
       disabled={disabled}
       hidden={hidden}
