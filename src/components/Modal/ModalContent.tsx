@@ -43,28 +43,29 @@ const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
           {...props}
           ref={forwardedRef}
           className={cn(
-            "data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none",
+            "data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[80vw] translate-x-[-50%] translate-y-[-50%] rounded-lg bg-white p-6 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none",
             className
           )}
         >
           {title && (
             <Dialog.Title className="text-text-default text-lg font-bold flex flex-row items-center">
-              {getStatusIcon(status)}
-              <div className="ml-2">{title}</div>
+              {status && <div className="mr-2">{getStatusIcon(status)}</div>}
+              {title}
             </Dialog.Title>
           )}
 
           {description && (
-            <Dialog.Description className="text-mauve11 mt-0.5 mb-5 text-sm text-grey-400 leading-normal">
+            <Dialog.Description className={cn("text-mauve11 mt-0.5 mb-5 text-sm text-grey-400 leading-normal flex flex-row items-center")}>
+              {status && <div className="mr-2 invisible">{getStatusIcon(status)}</div>}
               {description}
             </Dialog.Description>
           )}
 
-            {closable && (
-                <Dialog.Close className="absolute top-0 right-0 p-3">
-                <X className="text-grey-400 text-sm m-2" />
-                </Dialog.Close>
-            )}
+          {closable && (
+            <Dialog.Close className="absolute top-0 right-0 p-3">
+              <X className="text-grey-400 text-sm m-2" />
+            </Dialog.Close>
+          )}
 
           {children}
         </Dialog.Content>
