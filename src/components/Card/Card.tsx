@@ -1,10 +1,10 @@
 "use client"
 import React from "react";
-import { cn } from "../../lib/utils"; // Assuming cn is imported from a utility file
+import { cn } from "../../lib/utils"; 
 
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  size?: "small" | "medium" | "large" | string; // Accept string for custom sizes
+  size?: "small" | "medium" | "large" | string; 
 }
 
 
