@@ -130,6 +130,21 @@
       "types": "./dist/src/components/Modal/Modal.d.ts",
       "require": "./dist/src/components/Modal/Modal.js",
       "import": "./dist/src/components/Modal/Modal.js"
+    },
+    "./modalTrigger": {
+      "types": "./dist/src/components/Modal/ModalTrigger.d.ts",
+      "require": "./dist/src/components/Modal/ModalTrigger.js",
+      "import": "./dist/src/components/Modal/ModalTrigger.js"
+    },
+    "./modalContent": {
+      "types": "./dist/src/components/Modal/ModalContent.d.ts",
+      "require": "./dist/src/components/Modal/ModalContent.js",
+      "import": "./dist/src/components/Modal/ModalContent.js"
+    },
+    "./modalCloser": {
+      "types": "./dist/src/components/Modal/ModalCloser.d.ts",
+      "require": "./dist/src/components/Modal/ModalCloser.js",
+      "import": "./dist/src/components/Modal/ModalCloser.js"
     }
   },
   "files": [

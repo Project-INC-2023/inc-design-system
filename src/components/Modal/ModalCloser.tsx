@@ -1,11 +1,16 @@
-import React from 'react'
-import * as Dialog from "@radix-ui/react-dialog"
+import React, { Children } from 'react'
+import {Close, DialogCloseProps} from '@radix-ui/react-dialog'
 
-type Props = {}
+export interface ModalCloserProps extends DialogCloseProps{
+  children: React.ReactNode
+  className?: string
+}
 
-const ModalCloser = (props: Props) => {
+const ModalCloser = ({children, ...props}: ModalCloserProps) => {
   return (
-    <div>ModalCloser</div>
+    <Close asChild {...props}>
+      {children}
+    </Close>
   )
 }
 
