@@ -55,7 +55,8 @@ const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
           )}
 
           {description && (
-            <Dialog.Description className={cn("text-mauve11 mt-0.5 mb-5 text-sm text-grey-400 leading-normal", status ? "ml-2":"m-0")}>
+            <Dialog.Description className={cn("text-mauve11 mt-0.5 mb-5 text-sm text-grey-400 leading-normal flex flex-row items-center")}>
+              {status && <div className="mr-2 invisible">{getStatusIcon(status)}</div>}
               {description}
             </Dialog.Description>
           )}
