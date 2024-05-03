@@ -126,6 +126,11 @@
       "require": "./dist/src/components/Popover/Popover.js",
       "import": "./dist/src/components/Popover/Popover.js"
     },
+    "./card": {
+      "types": "./dist/src/components/Card/Card.d.ts",
+      "require": "./dist/src/components/Card/Card.js",
+      "import": "./dist/src/components/Card/Card.js"
+    },
     "./modal": {
       "types": "./dist/src/components/Modal/Modal.d.ts",
       "require": "./dist/src/components/Modal/Modal.js",
