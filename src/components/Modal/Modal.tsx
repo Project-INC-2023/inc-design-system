@@ -1,17 +1,14 @@
-import React, { ReactElement, forwardRef } from "react";
+import React, { ReactElement, forwardRef, ReactNode } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 
 export interface ModalProps extends Dialog.DialogProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
-const Modal = React.forwardRef<ModalProps>(
-  ({ children, ...props }, forwardRef) => {
-    return (
-        <Dialog.Root>{children}</Dialog.Root>
-    );
-  }
-);
+const Modal = ({ children, ...props }: ModalProps) => {
+  return <Dialog.Root {...props}>{children}</Dialog.Root>;
+};
+
 
 export default Modal;
 // const Modal = forwardRef<Dialog.DialogProps, any>(({ children, ...props }, ref) => {
