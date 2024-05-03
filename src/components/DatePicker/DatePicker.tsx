@@ -7,9 +7,14 @@ import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "../Button/Button";
 import { Calendar } from "../Calendar/Calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "../Popover/Popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverProps,
+  PopoverTrigger,
+} from "../Popover/Popover";
 
-type DatePickerProps = {
+interface DatePickerProps extends PopoverProps {
   /**
    * The current date.
    * @default new Date()
@@ -38,7 +43,7 @@ type DatePickerProps = {
    * @default ""
    */
   buttonClassName?: string;
-};
+}
 const DatePicker = ({
   today = new Date(),
   selected,
@@ -46,6 +51,7 @@ const DatePicker = ({
   placeholder = "Pick a date",
   disabled = false,
   buttonClassName,
+  ...props
 }: DatePickerProps) => {
   const [date, setDate] = React.useState<Date | undefined>(selected);
 
@@ -56,7 +62,7 @@ const DatePicker = ({
   };
 
   return (
-    <Popover>
+    <Popover {...props}>
       <PopoverTrigger disabled={disabled} asChild>
         <Button
           variant={"secondary"}
