@@ -150,6 +150,11 @@
       "types": "./dist/src/components/Modal/ModalCloser.d.ts",
       "require": "./dist/src/components/Modal/ModalCloser.js",
       "import": "./dist/src/components/Modal/ModalCloser.js"
+    },
+    "./hoverCard": {
+      "types": "./dist/src/components/HoverCard/HoverCard.d.ts",
+      "require": "./dist/src/components/HoverCard/HoverCard.js",
+      "import": "./dist/src/components/HoverCard/HoverCard.js"
     }
   },
   "files": [
