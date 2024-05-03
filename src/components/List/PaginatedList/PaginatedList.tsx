@@ -90,8 +90,6 @@ const PaginatedList = forwardRef<HTMLDivElement, PaginatedListProps>(
             currentPage={currentPage}
           />
         </div>
-
-        {children}
       </div>
     );
   }

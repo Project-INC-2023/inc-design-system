@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { CSSProperties, forwardRef } from "react";
 import Header from "../header";
 import Footer from "../footer";
 import { cn } from "@/lib/utils";
@@ -8,30 +8,40 @@ type Props = {
   footer?: string;
   children: React.ReactNode;
   className?: string;
+  itemsPerRow?: number;
 };
 
 const DefaultList = forwardRef<HTMLDivElement, Props>(
-  ({ header, footer, className, children, ...props }, forwardRef) => {
+  (
+    { header, footer, className, itemsPerRow = 0, children, ...props },
+    forwardRef
+  ) => {
     const childrenArray = React.Children.toArray(children);
 
     return (
       <div
         className={cn(
-          "bg-white rounded-lg border border-1 border-grey-300 divide-y divide-grey-300",
+          "bg-white rounded-lg border border-1 border-grey-300 divide-y divide-grey-300 ",
           className
+          // `w-[${width}]`,
+          // `h-[${height}]`
         )}
       >
         {header && <Header header={header} />}
 
-        <div className="divide-y divide-grey-300">
+        <div
+          className={cn(
+            "divide-y divide-grey-300",
+            itemsPerRow >= 1 && itemsPerRow <= 12  ? `grid grid-cols-${itemsPerRow} md:grid-cols-${itemsPerRow - 1 } sm:grid-cols-${itemsPerRow - 2 } ` : "flex flex-col"
+          )}
+        >
           {childrenArray.map((child, index) => (
             <div className="p-4" key={index}>
               {child}
             </div>
           ))}
-
-          {footer && <Footer footer={footer} />}
         </div>
+        {footer && <Footer footer={footer} />}
       </div>
     );
   }
