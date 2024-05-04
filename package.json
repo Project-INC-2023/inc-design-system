@@ -126,25 +126,25 @@
       "require": "./dist/src/components/Popover/Popover.js",
       "import": "./dist/src/components/Popover/Popover.js"
     },
+    "./card": {
+      "types": "./dist/src/components/Card/Card.d.ts",
+      "require": "./dist/src/components/Card/Card.js",
+      "import": "./dist/src/components/Card/Card.js"
+    },
     "./modal": {
-      "types": "./dist/src/components/Modal/Modal.d.ts",
-      "require": "./dist/src/components/Modal/Modal.js",
-      "import": "./dist/src/components/Modal/Modal.js"
+      "types": "./dist/src/components/Modal/modal.d.ts",
+      "require": "./dist/src/components/Modal/modal.js",
+      "import": "./dist/src/components/Modal/modal.js"
     },
-    "./modalTrigger": {
-      "types": "./dist/src/components/Modal/ModalTrigger.d.ts",
-      "require": "./dist/src/components/Modal/ModalTrigger.js",
-      "import": "./dist/src/components/Modal/ModalTrigger.js"
+    "./hoverCard": {
+      "types": "./dist/src/components/HoverCard/HoverCard.d.ts",
+      "require": "./dist/src/components/HoverCard/HoverCard.js",
+      "import": "./dist/src/components/HoverCard/HoverCard.js"
     },
-    "./modalContent": {
-      "types": "./dist/src/components/Modal/ModalContent.d.ts",
-      "require": "./dist/src/components/Modal/ModalContent.js",
-      "import": "./dist/src/components/Modal/ModalContent.js"
-    },
-    "./modalCloser": {
-      "types": "./dist/src/components/Modal/ModalCloser.d.ts",
-      "require": "./dist/src/components/Modal/ModalCloser.js",
-      "import": "./dist/src/components/Modal/ModalCloser.js"
+    "./alertModal": {
+      "types": "./dist/src/components/AlertModal/AlertModal.d.ts",
+      "require": "./dist/src/components/AlertModal/AlertModal.js",
+      "import": "./dist/src/components/AlertModal/AlertModal.js"
     }
   },
   "files": [
@@ -169,7 +169,9 @@
     "@radix-ui/react-scroll-area": "^1.0.5",
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.0",
-    "@tanstack/react-virtual": "^3.4.0",
+    "@tanstack/react-virtual": "^3.4.0",    
+    "@radix-ui/react-alert-dialog": "^1.0.5",
+    "@radix-ui/react-hover-card": "^1.0.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
