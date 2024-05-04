@@ -5,8 +5,6 @@ import type { VariantProps } from "class-variance-authority";
 import React, { useState } from "react";
 import { Check, X } from "lucide-react";
 
-
-
 interface SwitchIconProps {
   checked: boolean;
   size: "small" | "medium" | "large";
@@ -34,6 +32,10 @@ const switchWrapper = cva(
         medium: "w-12 h-6",
         large: "w-16 h-8",
       },
+      disabled: {
+        true: "opacity-50 cursor-not-allowed",
+        false: "",
+      },
       variantIcon: {
         true: "switch-icon",
       },
@@ -41,6 +43,7 @@ const switchWrapper = cva(
     defaultVariants: {
       checked: false,
       size: "medium",
+      disabled: false,
     },
   }
 );
@@ -68,6 +71,10 @@ const switchButton = cva(
         medium: "w-4 h-4 top-1 left-1",
         large: "w-6 h-6 top-1 left-1",
       },
+      disabled: {
+        true: "cursor-not-allowed opacity-50",
+        false: "",
+      },
     },
     compoundVariants: [
       {
@@ -89,6 +96,7 @@ const switchButton = cva(
     defaultVariants: {
       checked: false,
       size: "medium",
+      disabled: false,
     },
   }
 );
@@ -137,11 +145,13 @@ export interface SwitchProps
     VariantProps<typeof switchWrapper> {
   defaultChecked?: boolean;
   variantIcon?: boolean;
+  disabled?: boolean;
   onChange?: (checked: boolean) => void;
 }
 
 function Switch({
   defaultChecked = false,
+  disabled = false,
   size = "medium",
   variantIcon = false,
   onChange,
@@ -171,6 +181,7 @@ function Switch({
         className="opacity-0 absolute"
         checked={isChecked}
         onChange={handleToggle}
+        disabled={disabled}
         aria-checked={isChecked}
       />
       <span className={switchButton({ checked: Boolean(isChecked), size })} />
