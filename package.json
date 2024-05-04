@@ -1,6 +1,6 @@
 {
   "name": "inc-design-system",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -146,17 +146,17 @@
       "require": "./dist/src/components/AlertModal/AlertModal.js",
       "import": "./dist/src/components/AlertModal/AlertModal.js"
     },
-    "./timePicker" : { 
+    "./timePicker": {
       "types": "./dist/src/components/TimePicker/TimePicker.d.ts",
       "require": "./dist/src/components/TimePicker/TimePicker.js",
       "import": "./dist/src/components/TimePicker/TimePicker.js"
     },
-    "./indivTimePicker" : { 
+    "./indivTimePicker": {
       "types": "./dist/src/components/IndividualTimepicker/time-picker-demo.d.ts",
       "require": "./dist/src/components/TimePicker/time-picker-demo.js",
       "import": "./dist/src/components/TimePicker/time-picker-demo.js"
     },
-    "./indivTimePicker12" : { 
+    "./indivTimePicker12": {
       "types": "./dist/src/components/IndividualTimepicker/time-picker-12hour-demo.d.ts",
       "require": "./dist/src/components/TimePicker/time-picker-12hour-demo.js",
       "import": "./dist/src/components/TimePicker/time-picker-12hour-demo.js"
@@ -194,7 +194,7 @@
     "@radix-ui/react-scroll-area": "^1.0.5",
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.0",
-    "@tanstack/react-virtual": "^3.4.0",    
+    "@tanstack/react-virtual": "^3.4.0",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-hover-card": "^1.0.7",
     "date-fns": "^3.6.0",
