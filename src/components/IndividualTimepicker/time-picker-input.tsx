@@ -1,4 +1,4 @@
-import { Input } from "@/_components/Input";
+import { Input } from "@/components/Input/Input";
 
 import { cn } from "@/lib/utils";
 import React from "react";

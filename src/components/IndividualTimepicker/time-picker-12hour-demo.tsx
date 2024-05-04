@@ -10,7 +10,7 @@ interface TimePickerDemoProps {
   setDate: (date: Date | undefined) => void;
 }
 
-export function IndivTimePicker12({ date, setDate }: TimePickerDemoProps) {
+const IndivTimePicker12 = ({ date, setDate }: TimePickerDemoProps) => {
   const [period, setPeriod] = React.useState<Period>("PM");
 
   const minuteRef = React.useRef<HTMLInputElement>(null);
@@ -76,4 +76,6 @@ export function IndivTimePicker12({ date, setDate }: TimePickerDemoProps) {
       </div>
     </div>
   );
-}
+};
+
+export { IndivTimePicker12 };
