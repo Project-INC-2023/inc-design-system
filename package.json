@@ -132,9 +132,9 @@
       "import": "./dist/src/components/Card/Card.js"
     },
     "./modal": {
-      "types": "./dist/src/components/Modal/modal.d.ts",
-      "require": "./dist/src/components/Modal/modal.js",
-      "import": "./dist/src/components/Modal/modal.js"
+      "types": "./dist/src/components/Modal/Modal.d.ts",
+      "require": "./dist/src/components/Modal/Modal.js",
+      "import": "./dist/src/components/Modal/Modal.js"
     },
     "./hoverCard": {
       "types": "./dist/src/components/HoverCard/HoverCard.d.ts",
