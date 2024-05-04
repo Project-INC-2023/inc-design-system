@@ -1,20 +1,22 @@
 import React, { ReactElement, forwardRef, ReactNode } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { cn } from '@/lib/utils'
+import { cn } from "@/lib/utils";
 import { Info, CircleX, CircleAlert, CircleCheck, X } from "lucide-react";
 
-export interface ModalProps
+interface ModalProps
   extends Dialog.DialogProps,
     React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
 }
 
-export interface ModalCloserProps extends Dialog.DialogCloseProps, React.HtmlHTMLAttributes<HTMLButtonElement>{
-  children: React.ReactNode
-  className?: string
+interface ModalCloserProps
+  extends Dialog.DialogCloseProps,
+    React.HtmlHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+  className?: string;
 }
 
-export interface ModalContentProps
+interface ModalContentProps
   extends Dialog.DialogPortalProps,
     React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -25,27 +27,26 @@ export interface ModalContentProps
   closable?: boolean;
 }
 
-export interface ModalTriggerProps
+interface ModalTriggerProps
   extends React.HTMLAttributes<HTMLButtonElement>,
     Dialog.DialogTriggerProps {
   children: React.ReactNode;
   className?: string;
 }
 
-export const Modal = ({ children, ...props }: ModalProps) => {
-
+const Modal = ({ children, ...props }: ModalProps) => {
   return <Dialog.Root {...props}>{children}</Dialog.Root>;
 };
 
-export const ModalCloser = ({children, className, ...props}: ModalCloserProps) => {
+const ModalCloser = ({ children, className, ...props }: ModalCloserProps) => {
   return (
     <Dialog.Close asChild {...props} className={cn(className)}>
       {children}
     </Dialog.Close>
-  )
-}
+  );
+};
 
-export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
+const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
   (
     { children, title, description, className, status, closable, ...props },
     forwardedRef
@@ -86,8 +87,14 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
           )}
 
           {description && (
-            <Dialog.Description className={cn("text-mauve11 mt-0.5 mb-5 text-sm text-grey-400 leading-normal flex flex-row items-center")}>
-              {status && <div className="mr-2 invisible">{getStatusIcon(status)}</div>}
+            <Dialog.Description
+              className={cn(
+                "text-mauve11 mt-0.5 mb-5 text-sm text-grey-400 leading-normal flex flex-row items-center"
+              )}
+            >
+              {status && (
+                <div className="mr-2 invisible">{getStatusIcon(status)}</div>
+              )}
               {description}
             </Dialog.Description>
           )}
@@ -105,6 +112,12 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
   }
 );
 
-export const ModalTrigger = ({ children, className, ...props }: ModalTriggerProps) => {
-  return <Dialog.Trigger className={cn(className, "")} {...props} asChild>{children}</Dialog.Trigger>;
+const ModalTrigger = ({ children, className, ...props }: ModalTriggerProps) => {
+  return (
+    <Dialog.Trigger className={cn(className, "")} {...props} asChild>
+      {children}
+    </Dialog.Trigger>
+  );
 };
+
+export { Modal, ModalCloser, ModalContent, ModalTrigger };
