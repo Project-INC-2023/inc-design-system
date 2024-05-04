@@ -160,8 +160,17 @@
       "types": "./dist/src/components/IndividualTimepicker/time-picker-12hour-demo.d.ts",
       "require": "./dist/src/components/TimePicker/time-picker-12hour-demo.js",
       "import": "./dist/src/components/TimePicker/time-picker-12hour-demo.js"
+    },
+    "./calendar": {
+      "types": "./dist/src/components/Calendar/Calendar.d.ts",
+      "require": "./dist/src/components/Calendar/Calendar.js",
+      "import": "./dist/src/components/Calendar/Calendar.js"
+    },
+    "./datePicker": {
+      "types": "./dist/src/components/DatePicker/DatePicker.d.ts",
+      "require": "./dist/src/components/DatePicker/DatePicker.js",
+      "import": "./dist/src/components/DatePicker/DatePicker.js"
     }
-    
   },
   "files": [
     "dist"
@@ -188,7 +197,9 @@
     "@tanstack/react-virtual": "^3.4.0",    
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-hover-card": "^1.0.7",
+    "date-fns": "^3.6.0",
     "react": "^18.2.0",
+    "react-day-picker": "^8.10.1",
     "react-dom": "^18.2.0"
   },
   "dependencies": {
