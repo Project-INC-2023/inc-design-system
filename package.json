@@ -132,24 +132,9 @@
       "import": "./dist/src/components/Card/Card.js"
     },
     "./modal": {
-      "types": "./dist/src/components/Modal/Modal.d.ts",
-      "require": "./dist/src/components/Modal/Modal.js",
-      "import": "./dist/src/components/Modal/Modal.js"
-    },
-    "./modalTrigger": {
-      "types": "./dist/src/components/Modal/ModalTrigger.d.ts",
-      "require": "./dist/src/components/Modal/ModalTrigger.js",
-      "import": "./dist/src/components/Modal/ModalTrigger.js"
-    },
-    "./modalContent": {
-      "types": "./dist/src/components/Modal/ModalContent.d.ts",
-      "require": "./dist/src/components/Modal/ModalContent.js",
-      "import": "./dist/src/components/Modal/ModalContent.js"
-    },
-    "./modalCloser": {
-      "types": "./dist/src/components/Modal/ModalCloser.d.ts",
-      "require": "./dist/src/components/Modal/ModalCloser.js",
-      "import": "./dist/src/components/Modal/ModalCloser.js"
+      "types": "./dist/src/components/Modal/modal.d.ts",
+      "require": "./dist/src/components/Modal/modal.js",
+      "import": "./dist/src/components/Modal/modal.js"
     },
     "./hoverCard": {
       "types": "./dist/src/components/HoverCard/HoverCard.d.ts",
@@ -160,26 +145,6 @@
       "types": "./dist/src/components/AlertModal/AlertModal.d.ts",
       "require": "./dist/src/components/AlertModal/AlertModal.js",
       "import": "./dist/src/components/AlertModal/AlertModal.js"
-    },
-    "./alertModalTrigger": {
-      "types": "./dist/src/components/AlertModal/AlertModalTrigger.d.ts",
-      "require": "./dist/src/components/AlertModal/AlertModalTrigger.js",
-      "import": "./dist/src/components/AlertModal/AlertModalTrigger.js"
-    },
-    "./alertModalContent": {
-      "types": "./dist/src/components/AlertModal/AlertModalContent.d.ts",
-      "require": "./dist/src/components/AlertModal/AlertModalContent.js",
-      "import": "./dist/src/components/AlertModal/AlertModalContent.js"
-    },
-    "./alertModalCancel": {
-      "types": "./dist/src/components/AlertModal/AlertModalCancel.d.ts",
-      "require": "./dist/src/components/AlertModal/AlertModalCancel.js",
-      "import": "./dist/src/components/AlertModal/AlertModalCancel.js"
-    },
-    "./alertModalAction": {
-      "types": "./dist/src/components/AlertModal/AlertModalAction.d.ts",
-      "require": "./dist/src/components/AlertModal/AlertModalAction.js",
-      "import": "./dist/src/components/AlertModal/AlertModalAction.js"
     },
     "./calendar": {
       "types": "./dist/src/components/Calendar/Calendar.d.ts",
@@ -223,7 +188,6 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "lucide-react": "^0.367.0",
