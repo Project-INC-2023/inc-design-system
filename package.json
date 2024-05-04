@@ -165,6 +165,7 @@
       "types": "./dist/src/components/DatePicker/DatePicker.d.ts",
       "require": "./dist/src/components/DatePicker/DatePicker.js",
       "import": "./dist/src/components/DatePicker/DatePicker.js"
+    }
   },
   "files": [
     "dist"
