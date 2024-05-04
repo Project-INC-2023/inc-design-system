@@ -146,6 +146,21 @@
       "require": "./dist/src/components/AlertModal/AlertModal.js",
       "import": "./dist/src/components/AlertModal/AlertModal.js"
     },
+    "./timePicker" : { 
+      "types": "./dist/src/components/TimePicker/TimePicker.d.ts",
+      "require": "./dist/src/components/TimePicker/TimePicker.js",
+      "import": "./dist/src/components/TimePicker/TimePicker.js"
+    },
+    "./indivTimePicker" : { 
+      "types": "./dist/src/components/IndividualTimepicker/time-picker-demo.d.ts",
+      "require": "./dist/src/components/TimePicker/time-picker-demo.js",
+      "import": "./dist/src/components/TimePicker/time-picker-demo.js"
+    },
+    "./indivTimePicker12" : { 
+      "types": "./dist/src/components/IndividualTimepicker/time-picker-12hour-demo.d.ts",
+      "require": "./dist/src/components/TimePicker/time-picker-12hour-demo.js",
+      "import": "./dist/src/components/TimePicker/time-picker-12hour-demo.js"
+    },
     "./calendar": {
       "types": "./dist/src/components/Calendar/Calendar.d.ts",
       "require": "./dist/src/components/Calendar/Calendar.js",
