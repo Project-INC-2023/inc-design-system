@@ -156,6 +156,31 @@
       "require": "./dist/src/components/HoverCard/HoverCard.js",
       "import": "./dist/src/components/HoverCard/HoverCard.js"
     },
+    "./alertModal": {
+      "types": "./dist/src/components/AlertModal/AlertModal.d.ts",
+      "require": "./dist/src/components/AlertModal/AlertModal.js",
+      "import": "./dist/src/components/AlertModal/AlertModal.js"
+    },
+    "./alertModalTrigger": {
+      "types": "./dist/src/components/AlertModal/AlertModalTrigger.d.ts",
+      "require": "./dist/src/components/AlertModal/AlertModalTrigger.js",
+      "import": "./dist/src/components/AlertModal/AlertModalTrigger.js"
+    },
+    "./alertModalContent": {
+      "types": "./dist/src/components/AlertModal/AlertModalContent.d.ts",
+      "require": "./dist/src/components/AlertModal/AlertModalContent.js",
+      "import": "./dist/src/components/AlertModal/AlertModalContent.js"
+    },
+    "./alertModalCancel": {
+      "types": "./dist/src/components/AlertModal/AlertModalCancel.d.ts",
+      "require": "./dist/src/components/AlertModal/AlertModalCancel.js",
+      "import": "./dist/src/components/AlertModal/AlertModalCancel.js"
+    },
+    "./alertModalAction": {
+      "types": "./dist/src/components/AlertModal/AlertModalAction.d.ts",
+      "require": "./dist/src/components/AlertModal/AlertModalAction.js",
+      "import": "./dist/src/components/AlertModal/AlertModalAction.js"
+    },
     "./calendar": {
       "types": "./dist/src/components/Calendar/Calendar.d.ts",
       "require": "./dist/src/components/Calendar/Calendar.js",
@@ -182,20 +207,23 @@
   },
   "peerDependencies": {
     "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-popover": "^1.0.7",
-    "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-radio-group": "^1.1.3",
     "@radix-ui/react-scroll-area": "^1.0.5",
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.0",
-    "@tanstack/react-virtual": "^3.4.0",
+    "@tanstack/react-virtual": "^3.4.0",    
+    "@radix-ui/react-alert-dialog": "^1.0.5",
+    "@radix-ui/react-hover-card": "^1.0.7",
     "date-fns": "^3.6.0",
     "react": "^18.2.0",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18.2.0"
   },
   "dependencies": {
+
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "lucide-react": "^0.367.0",
