@@ -1,5 +1,11 @@
 # inc-design-system
 
+## 1.0.3
+
+### Patch Changes
+
+- correct typo in file paths for Modal component in package.json to fix "Module not found: Can't resolve 'inc-design-system/modal'" build error
+
 ## 1.0.2
 
 ### Patch Changes
