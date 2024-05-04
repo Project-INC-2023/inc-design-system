@@ -2,7 +2,7 @@ import React, { Children } from 'react'
 import {Close, DialogCloseProps} from '@radix-ui/react-dialog'
 import { cn } from '@/lib/utils'
 
-export interface ModalCloserProps extends DialogCloseProps{
+export interface ModalCloserProps extends DialogCloseProps, React.HtmlHTMLAttributes<HTMLButtonElement>{
   children: React.ReactNode
   className?: string
 }
