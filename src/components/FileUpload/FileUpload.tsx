@@ -2,10 +2,11 @@ import React, { useState, useRef } from "react";
 import { Inbox } from "lucide-react";
 import { cva } from "class-variance-authority";
 
-interface FileUploadProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface FileUploadProps extends React.HTMLAttributes<HTMLDivElement> {
   width?: "full" | "half";
   transparent?: boolean;
   onFileChange?: (files: File[]) => void;
+  acceptedFiles?: string;
 }
 
 const uploadArea = cva(
@@ -32,6 +33,7 @@ const uploadArea = cva(
       progress: {
         none: "bg-white",
         loading: "bg-gray-100 border-blue-500",
+        dragOver: "bg-gray-300",
       },
     },
     defaultVariants: {
@@ -47,14 +49,22 @@ const FileUpload: React.FC<FileUploadProps> = ({
   transparent = false,
   onFileChange,
   className,
+  acceptedFiles = ".xlsx,.xls,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/pdf",
   ...props
 }) => {
   const [progress, setProgress] = useState(0);
   const [files, setFiles] = useState<File[]>([]);
+  const [isDragOver, setIsDragOver] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  const isValidFileType = (file: File) => {
+    return acceptedFiles
+      .split(",")
+      .some((type) => file.type === type || file.name.endsWith(type));
+  };
+
   const handleFiles = (newFiles: FileList) => {
-    const fileList = Array.from(newFiles);
+    const fileList = Array.from(newFiles).filter(isValidFileType);
     setFiles((prevFiles) => [...prevFiles, ...fileList]);
     fileList.forEach((file) => {
       const reader = new FileReader();
@@ -83,6 +93,28 @@ const FileUpload: React.FC<FileUploadProps> = ({
     }
   };
 
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragOver(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragOver(false);
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragOver(false);
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      handleFiles(e.dataTransfer.files);
+      e.dataTransfer.clearData();
+    }
+  };
+
   const handleRemoveFile = (index: number) => {
     setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
   };
@@ -93,8 +125,11 @@ const FileUpload: React.FC<FileUploadProps> = ({
       className={`${uploadArea({
         width,
         transparent,
-        progress: progress > 0 ? "loading" : "none",
+        progress: isDragOver ? "dragOver" : progress > 0 ? "loading" : "none",
       })} ${className}`}
+      onDragOver={handleDragOver}
+      onDragLeave={handleDragLeave}
+      onDrop={handleDrop}
     >
       <Inbox className="w-12 h-12 text-primary m-3" />
       <p className="text-center text-gray-500">
@@ -112,7 +147,7 @@ const FileUpload: React.FC<FileUploadProps> = ({
         className="sr-only"
         onChange={handleChange}
         multiple
-        accept=".xlsx,.xls,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        accept={acceptedFiles}
       />
       {progress > 0 && (
         <div className="absolute w-full px-4 bottom-0 left-0">

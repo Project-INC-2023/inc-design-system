@@ -6,11 +6,11 @@ import { TimePeriodSelect } from "./period-select";
 import { Period } from "./time-picker-utils";
 
 interface TimePickerDemoProps {
-  date: Date | undefined;
-  setDate: (date: Date | undefined) => void;
+  time: Date | undefined;
+  setTime: (time: Date | undefined) => void;
 }
 
-const IndivTimePicker12 = ({ date, setDate }: TimePickerDemoProps) => {
+const IndivTimePicker12 = ({ time, setTime }: TimePickerDemoProps) => {
   const [period, setPeriod] = React.useState<Period>("PM");
 
   const minuteRef = React.useRef<HTMLInputElement>(null);
@@ -27,8 +27,8 @@ const IndivTimePicker12 = ({ date, setDate }: TimePickerDemoProps) => {
         <TimePickerInput
           picker="12hours"
           period={period}
-          date={date}
-          setDate={setDate}
+          date={time}
+          setDate={setTime}
           ref={hourRef}
           onRightFocus={() => minuteRef.current?.focus()}
         />
@@ -40,8 +40,8 @@ const IndivTimePicker12 = ({ date, setDate }: TimePickerDemoProps) => {
         <TimePickerInput
           picker="minutes"
           id="minutes12"
-          date={date}
-          setDate={setDate}
+          date={time}
+          setDate={setTime}
           ref={minuteRef}
           onLeftFocus={() => hourRef.current?.focus()}
           onRightFocus={() => secondRef.current?.focus()}
@@ -54,8 +54,8 @@ const IndivTimePicker12 = ({ date, setDate }: TimePickerDemoProps) => {
         <TimePickerInput
           picker="seconds"
           id="seconds12"
-          date={date}
-          setDate={setDate}
+          date={time}
+          setDate={setTime}
           ref={secondRef}
           onLeftFocus={() => minuteRef.current?.focus()}
           onRightFocus={() => periodRef.current?.focus()}
@@ -68,8 +68,8 @@ const IndivTimePicker12 = ({ date, setDate }: TimePickerDemoProps) => {
         <TimePeriodSelect
           period={period}
           setPeriod={setPeriod}
-          date={date}
-          setDate={setDate}
+          date={time}
+          setDate={setTime}
           ref={periodRef}
           onLeftFocus={() => secondRef.current?.focus()}
         />
