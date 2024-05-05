@@ -1,5 +1,11 @@
 # inc-design-system
 
+## 1.0.4
+
+### Patch Changes
+
+- fix: correct TimePicker folder and file names to match export path to fix "Module not found: Can't resolve 'inc-design-system/timePicker'" build error
+
 ## 1.0.3
 
 ### Patch Changes
