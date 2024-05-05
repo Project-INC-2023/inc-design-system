@@ -5,8 +5,8 @@ import { Clock } from "lucide-react";
 import { TimePickerInput } from "./time-picker-input";
 
 export interface TimePickerDemoProps {
-  time: Date | undefined;
-  setTime: (time: Date | undefined) => void;
+  date: Date | undefined;
+  setDate: (date: Date | undefined) => void;
 }
 
 const IndivTimePicker = ({ time, setTime }: TimePickerDemoProps) => {
