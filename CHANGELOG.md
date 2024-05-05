@@ -1,5 +1,11 @@
 # inc-design-system
 
+## 1.1.0
+
+### Minor Changes
+
+- add Avatar component and correct the issue where drag and drop did not work for the FileUpload component
+
 ## 1.0.4
 
 ### Patch Changes
