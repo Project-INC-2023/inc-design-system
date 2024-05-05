@@ -5,11 +5,11 @@ import { Clock } from "lucide-react";
 import { TimePickerInput } from "./time-picker-input";
 
 export interface TimePickerDemoProps {
-  date: Date | undefined;
-  setDate: (date: Date | undefined) => void;
+  time: Date | undefined;
+  setTime: (time: Date | undefined) => void;
 }
 
-const IndivTimePicker = ({ date, setDate }: TimePickerDemoProps) => {
+const IndivTimePicker = ({ time, setTime }: TimePickerDemoProps) => {
   const minuteRef = React.useRef<HTMLInputElement>(null);
   const hourRef = React.useRef<HTMLInputElement>(null);
   const secondRef = React.useRef<HTMLInputElement>(null);
@@ -22,8 +22,8 @@ const IndivTimePicker = ({ date, setDate }: TimePickerDemoProps) => {
         </label>
         <TimePickerInput
           picker="hours"
-          date={date}
-          setDate={setDate}
+          date={time}
+          setDate={setTime}
           ref={hourRef}
           onRightFocus={() => minuteRef.current?.focus()}
         />
@@ -34,8 +34,8 @@ const IndivTimePicker = ({ date, setDate }: TimePickerDemoProps) => {
         </label>
         <TimePickerInput
           picker="minutes"
-          date={date}
-          setDate={setDate}
+          date={time}
+          setDate={setTime}
           ref={minuteRef}
           onLeftFocus={() => hourRef.current?.focus()}
           onRightFocus={() => secondRef.current?.focus()}
@@ -47,8 +47,8 @@ const IndivTimePicker = ({ date, setDate }: TimePickerDemoProps) => {
         </label>
         <TimePickerInput
           picker="seconds"
-          date={date}
-          setDate={setDate}
+          date={time}
+          setDate={setTime}
           ref={secondRef}
           onLeftFocus={() => minuteRef.current?.focus()}
         />
