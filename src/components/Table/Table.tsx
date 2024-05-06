@@ -3,9 +3,14 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 interface TableProps extends React.HTMLAttributes<HTMLTableElement> {}
-interface TableSectionProps
+interface TableHeaderProps
+  extends React.HTMLAttributes<HTMLTableSectionElement> {}
+interface TableBodyProps
+  extends React.HTMLAttributes<HTMLTableSectionElement> {}
+interface TableFooterProps
   extends React.HTMLAttributes<HTMLTableSectionElement> {}
 interface TableRowProps extends React.HTMLAttributes<HTMLTableRowElement> {}
+interface TableHeadProps extends React.ThHTMLAttributes<HTMLTableCellElement> {}
 interface TableCellProps extends React.TdHTMLAttributes<HTMLTableCellElement> {}
 interface TableCaptionProps
   extends React.HTMLAttributes<HTMLTableCaptionElement> {}
@@ -26,22 +31,21 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
 );
 Table.displayName = "Table";
 
-const TableHeader = React.forwardRef<
-  HTMLTableSectionElement,
-  TableSectionProps
->(({ className, ...props }, ref) => (
-  <thead
-    ref={ref}
-    className={cn(
-      "[&_tr]:border-b border-b-grey-400 bg-grey-200 text-text-default",
-      className
-    )}
-    {...props}
-  />
-));
+const TableHeader = React.forwardRef<HTMLTableSectionElement, TableHeaderProps>(
+  ({ className, ...props }, ref) => (
+    <thead
+      ref={ref}
+      className={cn(
+        "[&_tr]:border-b [&_tr]:border-b-grey-200 text-text-default",
+        className
+      )}
+      {...props}
+    />
+  )
+);
 TableHeader.displayName = "TableHeader";
 
-const TableBody = React.forwardRef<HTMLTableSectionElement, TableSectionProps>(
+const TableBody = React.forwardRef<HTMLTableSectionElement, TableBodyProps>(
   ({ className, ...props }, ref) => (
     <tbody
       ref={ref}
@@ -52,19 +56,18 @@ const TableBody = React.forwardRef<HTMLTableSectionElement, TableSectionProps>(
 );
 TableBody.displayName = "TableBody";
 
-const TableFooter = React.forwardRef<
-  HTMLTableSectionElement,
-  TableSectionProps
->(({ className, ...props }, ref) => (
-  <tfoot
-    ref={ref}
-    className={cn(
-      "border-t border-t-grey-200 bg-muted/50 font-medium [&>tr]:last:border-b-0 text-text-default",
-      className
-    )}
-    {...props}
-  />
-));
+const TableFooter = React.forwardRef<HTMLTableSectionElement, TableFooterProps>(
+  ({ className, ...props }, ref) => (
+    <tfoot
+      ref={ref}
+      className={cn(
+        "border-t border-t-grey-200 bg-muted/50 font-medium [&>tr]:last:border-b-0 text-text-default",
+        className
+      )}
+      {...props}
+    />
+  )
+);
 TableFooter.displayName = "TableFooter";
 
 const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(
@@ -81,12 +84,12 @@ const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(
 );
 TableRow.displayName = "TableRow";
 
-const TableHead = React.forwardRef<HTMLTableCellElement, TableCellProps>(
+const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
   ({ className, ...props }, ref) => (
     <th
       ref={ref}
       className={cn(
-        "h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 text-text-default",
+        "h-10 px-2 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] text-text-default",
         className
       )}
       {...props}
@@ -100,7 +103,7 @@ const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
     <td
       ref={ref}
       className={cn(
-        "p-4 align-middle [&:has([role=checkbox])]:pr-0 text-text-default",
+        "p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] text-text-default",
         className
       )}
       {...props}
@@ -115,10 +118,7 @@ const TableCaption = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <caption
     ref={ref}
-    className={cn(
-      "mt-4 text-sm text-muted-foreground text-text-default",
-      className
-    )}
+    className={cn("mt-4 text-sm text-text-default", className)}
     {...props}
   />
 ));
@@ -134,8 +134,11 @@ export {
   TableCell,
   TableCaption,
   TableProps,
-  TableSectionProps,
+  TableHeaderProps,
+  TableBodyProps,
+  TableFooterProps,
   TableRowProps,
+  TableHeadProps,
   TableCellProps,
   TableCaptionProps,
 };
