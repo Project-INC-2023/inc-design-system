@@ -2,7 +2,6 @@
 
 import PageNumbers from "./PageNumbers";
 import Header from "../header";
-import Footer from "../footer";
 import React, { forwardRef, useEffect } from "react";
 import { cn } from "../../../lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
@@ -26,10 +25,11 @@ export interface PaginatedListProps
   header?: string;
   horizontal?: boolean;
   className?: string;
+  height?: string;
 }
 
 const PaginatedList = forwardRef<HTMLDivElement, PaginatedListProps>(
-  ({ children, className, variant, ...props }, forwardRef) => {
+  ({ children, className, variant, height = "full", ...props }, forwardRef) => {
     // Storage of info of pages
     // So that user can pass their own children
 
@@ -72,15 +72,21 @@ const PaginatedList = forwardRef<HTMLDivElement, PaginatedListProps>(
     };
 
     return (
-      <div className={cn("", className)}>
+      <div className={cn("flex flex-col", className, "h-" + height)}>
         {props.header && <Header header={props.header} />}
-        <div className={cn(paginatedVariant({ variant }), className)}>
+        <div
+          className={cn(
+            "flex-grow overflow-auto",
+            paginatedVariant({ variant }),
+            className
+          )}
+        >
           {currentPosts.map((item, index) => {
             return <div key={index}>{item}</div>;
           })}
         </div>
 
-        <div className="flex justify-end">
+        <div className="flex justify-end items-end">
           <PageNumbers
             itemsPerPage={itemsPerPage}
             totalItems={arrayCount}
