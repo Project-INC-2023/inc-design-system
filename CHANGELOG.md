@@ -1,5 +1,11 @@
 # inc-design-system
 
+## 1.2.0
+
+### Minor Changes
+
+- feat: add Table components and its sub-components to the INC Design System Component Library. This includes Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell and TableCaption
+
 ## 1.1.0
 
 ### Minor Changes
