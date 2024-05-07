@@ -1,6 +1,6 @@
 {
   "name": "inc-design-system",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "author": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -175,6 +175,11 @@
       "types": "./dist/src/components/Avatar/Avatar.d.ts",
       "require": "./dist/src/components/Avatar/Avatar.js",
       "import": "./dist/src/components/Avatar/Avatar.js"
+    },
+    "./table": {
+      "types": "./dist/src/components/Table/Table.d.ts",
+      "require": "./dist/src/components/Table/Table.js",
+      "import": "./dist/src/components/Table/Table.js"
     }
   },
   "files": [

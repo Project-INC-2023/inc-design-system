@@ -1,5 +1,17 @@
 # inc-design-system
 
+## 1.2.1
+
+### Patch Changes
+
+- style: update TableHead component height and padding. Original height and padding for TableHead was too much, making it look less appealing. Change height from 48px to 10px. Change padding from 16px for each horizontal side to 8px for each horizontal side
+
+## 1.2.0
+
+### Minor Changes
+
+- feat: add Table components and its sub-components to the INC Design System Component Library. This includes Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell and TableCaption
+
 ## 1.1.0
 
 ### Minor Changes
