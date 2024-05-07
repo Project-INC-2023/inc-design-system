@@ -31,23 +31,7 @@ const Accordion = ({
       className="rounded-lg  border-1 border-grey-200"
       disabled={disabled}
     >
-
-      {headers.length == childrenArray.length ? (
-        headers?.map((item: string, index) => {
-          return (
-            <AccordionItem key={item} value={item}>
-              <AccordionTrigger className="disabled:opacity-50 disabled:cursor-not-allowed">
-                {/* props.icon && {props.icon} */}
-                {item}
-              </AccordionTrigger>
-
-              <AccordionContent>{childrenArray[index]}</AccordionContent>
-            </AccordionItem>
-          );
-        })
-      ) : (
-        <div>Number of headers do not much number of children.</div>
-      )}
+      {children}
     </Component.Root>
   );
 };
@@ -124,4 +108,4 @@ const AccordionContent = React.forwardRef<
   </Component.Content>
 ));
 
-export default Accordion;
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
