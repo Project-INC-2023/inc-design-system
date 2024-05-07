@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { ToastT, toast as sonner, type ExternalToast } from "sonner";
+import { toast as sonner, type ToastT, type ExternalToast } from "sonner";
 import {
   CircleAlertIcon,
   CircleCheckIcon,
@@ -29,14 +29,50 @@ export type PromiseData<ToastData = any> = PromiseExternalToast & {
   finally?: () => void | Promise<void>;
 };
 
-export type ToasterProps = React.ComponentProps<typeof Sonner>;
+export type ToastOptions = Omit<
+  ExternalToast,
+  | "actionButtonStyle"
+  | "cancelButtonStyle"
+  | "invert"
+  | "important"
+  | "icon"
+  | "action"
+  | "cancel"
+  | "unstyled"
+  | "classNames"
+  | "style"
+  | "descriptionClassName"
+  | "onDismiss"
+  | "onAutoClose"
+> & {
+  onDismiss?: () => void;
+  onAutoClose?: () => void;
+};
+
+export type ToasterProps = Omit<
+  React.ComponentProps<typeof Sonner>,
+  | "cn"
+  | "style"
+  | "className"
+  | "closeButton"
+  | "richColors"
+  | "invert"
+  | "theme"
+  | "hotkey"
+  | "containerAriaLabel"
+  | "loadingIcon"
+  | "icons"
+  | "toastOptions"
+> & {
+  toastOptions?: ToastOptions;
+};
 
 const Toaster = ({ ...props }: ToasterProps) => {
   return <Sonner {...props} />;
 };
 
 const toast = {
-  info: (message: string | React.ReactNode, opts?: ExternalToast) => {
+  info: (message: string | React.ReactNode, opts?: ToastOptions) => {
     return sonner.custom(
       (t) => (
         <div className="w-[356px] border border-info border-opacity-10 shadow-md bg-info-accent px-2 py-3 rounded-lg flex flex-col">
@@ -73,7 +109,7 @@ const toast = {
               <XIcon
                 className="w-4 h-4 fill-grey-400 stroke-gray-400 cursor-pointer"
                 onClick={() => {
-                  if (opts.onDismiss) opts.onDismiss(t as unknown as ToastT);
+                  if (opts.onDismiss) opts.onDismiss();
                   sonner.dismiss(t);
                 }}
               />
@@ -85,7 +121,7 @@ const toast = {
     );
   },
 
-  success: (message: string | React.ReactNode, opts?: ExternalToast) => {
+  success: (message: string | React.ReactNode, opts?: ToastOptions) => {
     return sonner.custom(
       (t) => (
         <div className="w-[356px] border border-success border-opacity-10 shadow-md bg-success-accent px-2 py-3 rounded-lg flex flex-col">
@@ -121,7 +157,7 @@ const toast = {
               <XIcon
                 className="w-4 h-4 fill-grey-400 stroke-gray-400 cursor-pointer"
                 onClick={() => {
-                  if (opts.onDismiss) opts.onDismiss(t as unknown as ToastT);
+                  if (opts.onDismiss) opts.onDismiss();
                   sonner.dismiss(t);
                 }}
               />
@@ -133,7 +169,7 @@ const toast = {
     );
   },
 
-  warning: (message: string | React.ReactNode, opts?: ExternalToast) => {
+  warning: (message: string | React.ReactNode, opts?: ToastOptions) => {
     return sonner.custom(
       (t) => (
         <div className="w-[356px] border border-warning border-opacity-10 shadow-md bg-warning-accent px-2 py-3 rounded-lg flex flex-col">
@@ -169,7 +205,7 @@ const toast = {
               <XIcon
                 className="w-4 h-4 fill-grey-400 stroke-gray-400 cursor-pointer"
                 onClick={() => {
-                  if (opts.onDismiss) opts.onDismiss(t as unknown as ToastT);
+                  if (opts.onDismiss) opts.onDismiss();
                   sonner.dismiss(t);
                 }}
               />
@@ -181,7 +217,7 @@ const toast = {
     );
   },
 
-  error: (message: string | React.ReactNode, opts?: ExternalToast) => {
+  error: (message: string | React.ReactNode, opts?: ToastOptions) => {
     return sonner.custom(
       (t) => (
         <div className="w-[356px] border border-danger border-opacity-10 shadow-md bg-danger-accent px-2 py-3 rounded-lg flex flex-col">
@@ -218,7 +254,7 @@ const toast = {
               <XIcon
                 className="w-4 h-4 fill-grey-400 stroke-gray-400 cursor-pointer"
                 onClick={() => {
-                  if (opts.onDismiss) opts.onDismiss(t as unknown as ToastT);
+                  if (opts.onDismiss) opts.onDismiss();
                   sonner.dismiss(t);
                 }}
               />
@@ -244,7 +280,7 @@ const toast = {
 type LoadingProps = {
   t: string | number;
   promise: PromiseT;
-  opts?: PromiseData;
+  opts?: Omit<PromiseData, "description">;
 };
 
 const Loading = ({ t, promise, opts }: LoadingProps) => {
