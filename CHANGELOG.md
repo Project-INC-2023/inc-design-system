@@ -1,5 +1,11 @@
 # inc-design-system
 
+## 1.2.2
+
+### Patch Changes
+
+- feat: Usage of Accodion has changed such that each item needs to be enclosed by an accordionItem. Now, users do not need to pass in any headers props etc. Accordian children will be displayed using AccordianItem.
+
 ## 1.2.1
 
 ### Patch Changes
