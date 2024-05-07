@@ -11,10 +11,11 @@ import {
   XIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Toaster as Sonner } from "sonner";
 
-type PromiseT<Data = any> = Promise<Data> | (() => Promise<Data>);
-type PromiseExternalToast = Omit<ExternalToast, "description">;
-type PromiseData<ToastData = any> = PromiseExternalToast & {
+export type PromiseT<Data = any> = Promise<Data> | (() => Promise<Data>);
+export type PromiseExternalToast = Omit<ExternalToast, "description">;
+export type PromiseData<ToastData = any> = PromiseExternalToast & {
   loading?: string | React.ReactNode;
   success?:
     | string
@@ -28,11 +29,17 @@ type PromiseData<ToastData = any> = PromiseExternalToast & {
   finally?: () => void | Promise<void>;
 };
 
-export const toast = {
+export type ToasterProps = React.ComponentProps<typeof Sonner>;
+
+const Toaster = ({ ...props }: ToasterProps) => {
+  return <Sonner {...props} />;
+};
+
+const toast = {
   info: (message: string | React.ReactNode, opts?: ExternalToast) => {
     return sonner.custom(
       (t) => (
-        <div className="w-[356px] bg-info-accent px-2 py-3 rounded-lg flex flex-col">
+        <div className="w-[356px] border border-info border-opacity-10 shadow-md bg-info-accent px-2 py-3 rounded-lg flex flex-col">
           <div
             className={cn([
               "flex space-x-2 items-center",
@@ -81,7 +88,7 @@ export const toast = {
   success: (message: string | React.ReactNode, opts?: ExternalToast) => {
     return sonner.custom(
       (t) => (
-        <div className="w-[356px] bg-success-accent px-2 py-3 rounded-lg flex flex-col">
+        <div className="w-[356px] border border-success border-opacity-10 shadow-md bg-success-accent px-2 py-3 rounded-lg flex flex-col">
           <div
             className={cn([
               "flex space-x-2 items-center",
@@ -129,7 +136,7 @@ export const toast = {
   warning: (message: string | React.ReactNode, opts?: ExternalToast) => {
     return sonner.custom(
       (t) => (
-        <div className="w-[356px] bg-warning-accent px-2 py-3 rounded-lg flex flex-col">
+        <div className="w-[356px] border border-warning border-opacity-10 shadow-md bg-warning-accent px-2 py-3 rounded-lg flex flex-col">
           <div
             className={cn([
               "flex space-x-2 items-center",
@@ -177,7 +184,7 @@ export const toast = {
   error: (message: string | React.ReactNode, opts?: ExternalToast) => {
     return sonner.custom(
       (t) => (
-        <div className="w-[356px] bg-danger-accent px-2 py-3 rounded-lg flex flex-col">
+        <div className="w-[356px] border border-danger border-opacity-10 shadow-md bg-danger-accent px-2 py-3 rounded-lg flex flex-col">
           <div
             className={cn([
               "flex space-x-2 items-center",
@@ -274,7 +281,7 @@ const Loading = ({ t, promise, opts }: LoadingProps) => {
   return (
     <>
       {isLoading ? (
-        <div className="w-[356px] border bg-background px-2 py-3 items-center rounded-lg flex space-x-2">
+        <div className="w-[356px] shadow-md bg-background px-2 py-3 items-center rounded-lg flex space-x-2">
           <Loader2Icon className="w-4 h-4  stroke-primary animate-spin" />
           <p className="text-text-default text-sm">
             {opts?.loading ? opts.loading : "Loading..."}
@@ -283,8 +290,8 @@ const Loading = ({ t, promise, opts }: LoadingProps) => {
       ) : (
         <div
           className={cn([
-            "w-[356px] bg-success-accent px-2 py-3 rounded-lg flex flex-col",
-            state === "error" && "bg-danger-accent",
+            "w-[356px] border border-success border-opacity-10 shadow-md bg-success-accent px-2 py-3 rounded-lg flex flex-col",
+            state === "error" && "bg-danger-accent border-danger",
           ])}
         >
           <div className={cn(["flex space-x-2 items-center", opts?.className])}>
@@ -328,3 +335,5 @@ const Loading = ({ t, promise, opts }: LoadingProps) => {
     </>
   );
 };
+
+export { Toaster, toast };
