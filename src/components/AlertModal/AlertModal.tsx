@@ -1,54 +1,70 @@
-import React, { ReactElement, forwardRef, ReactNode } from "react";
-import * as Dialog from "@radix-ui/react-dialog";
+import React, {forwardRef} from "react";
+import* as AlertDialog from "@radix-ui/react-alert-dialog";
 import { cn } from "@/lib/utils";
 import { Info, CircleX, CircleAlert, CircleCheck, X } from "lucide-react";
 
-interface ModalProps
-  extends Dialog.DialogProps,
+export interface AlertModalProps
+  extends AlertDialog.AlertDialogProps,
     React.HTMLAttributes<HTMLDivElement> {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
-interface ModalCloserProps
-  extends Dialog.DialogCloseProps,
+export interface AlertModalActionProps
+  extends AlertDialog.AlertDialogActionProps,
     React.HtmlHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;
 }
 
-interface ModalContentProps
-  extends Dialog.DialogPortalProps,
+export interface AlertModalCancelProps extends AlertDialog.AlertDialogCancelProps, React.HtmlHTMLAttributes<HTMLButtonElement>{
+  children: React.ReactNode
+  className?: string
+}
+
+export interface AlertModalContentProps
+  extends AlertDialog.AlertDialogContentProps,
     React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   title?: string;
   description?: string;
   className?: string;
   status?: "success" | "error" | "warning" | "info";
-  closable?: boolean;
 }
 
-interface ModalTriggerProps
+export interface AlertModalTriggerProps
   extends React.HTMLAttributes<HTMLButtonElement>,
-    Dialog.DialogTriggerProps {
+    AlertDialog.DialogTriggerProps {
   children: React.ReactNode;
   className?: string;
 }
 
-const Modal = ({ children, ...props }: ModalProps) => {
-  return <Dialog.Root {...props}>{children}</Dialog.Root>;
+export const AlertModal = ({ children, ...props }: AlertModalProps) => {
+  return <AlertDialog.Root {...props}>{children}</AlertDialog.Root>;
 };
 
-const ModalCloser = ({ children, className, ...props }: ModalCloserProps) => {
+export const AlertModalAction = ({
+  children,
+  className,
+  ...props
+}: AlertModalActionProps) => {
   return (
-    <Dialog.Close asChild {...props} className={cn(className)}>
+    <AlertDialog.Action asChild {...props} className={cn(className)}>
       {children}
-    </Dialog.Close>
+    </AlertDialog.Action>
   );
 };
 
-const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
+export const AlertModalCancel = ({children, className, ...props}: AlertModalCancelProps) => {
+  return (
+    <AlertDialog.Cancel asChild {...props} className={cn(className)}>
+      {children}
+    </AlertDialog.Cancel>
+  )
+}
+
+export const AlertModalContent = forwardRef<HTMLDivElement, AlertModalContentProps>(
   (
-    { children, title, description, className, status, closable, ...props },
+    { children, title, description, className, status, ...props },
     forwardedRef
   ) => {
     const getStatusIcon = (
@@ -69,9 +85,9 @@ const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
     };
 
     return (
-      <Dialog.Portal>
-        <Dialog.Overlay className=" bg-black bg-opacity-20 data-[state=open]:animate-overlayShow fixed inset-0" />
-        <Dialog.Content
+      <AlertDialog.Portal>
+        <AlertDialog.Overlay className=" bg-black bg-opacity-20 data-[state=open]:animate-overlayShow fixed inset-0" />
+        <AlertDialog.Content
           {...props}
           ref={forwardedRef}
           className={cn(
@@ -80,14 +96,14 @@ const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
           )}
         >
           {title && (
-            <Dialog.Title className="text-text-default text-lg font-bold flex flex-row items-center">
+            <AlertDialog.Title className="text-text-default text-lg font-bold flex flex-row items-center">
               {status && <div className="mr-2">{getStatusIcon(status)}</div>}
               {title}
-            </Dialog.Title>
+            </AlertDialog.Title>
           )}
 
           {description && (
-            <Dialog.Description
+            <AlertDialog.Description
               className={cn(
                 "text-mauve11 mt-0.5 mb-5 text-sm text-grey-400 leading-normal flex flex-row items-center"
               )}
@@ -96,28 +112,18 @@ const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
                 <div className="mr-2 invisible">{getStatusIcon(status)}</div>
               )}
               {description}
-            </Dialog.Description>
-          )}
-
-          {closable && (
-            <Dialog.Close className="absolute top-0 right-0 p-3">
-              <X className="text-grey-400 text-sm m-2" />
-            </Dialog.Close>
+            </AlertDialog.Description>
           )}
 
           {children}
-        </Dialog.Content>
-      </Dialog.Portal>
+        </AlertDialog.Content>
+      </AlertDialog.Portal>
     );
   }
 );
 
-const ModalTrigger = ({ children, className, ...props }: ModalTriggerProps) => {
-  return (
-    <Dialog.Trigger className={cn(className, "")} {...props} asChild>
-      {children}
-    </Dialog.Trigger>
-  );
+
+export const AlertModalTrigger = ({ children, className, ...props }: AlertModalTriggerProps) => {
+  return <AlertDialog.Trigger className={cn(className, "")} {...props} asChild>{children}</AlertDialog.Trigger>;
 };
 
-export { Modal, ModalCloser, ModalContent, ModalTrigger };
