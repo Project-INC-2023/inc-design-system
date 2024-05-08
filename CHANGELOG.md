@@ -1,5 +1,11 @@
 # inc-design-system
 
+## 1.3.0
+
+### Minor Changes
+
+- feat: add Toast component
+
 ## 1.2.4
 
 ### Patch Changes
