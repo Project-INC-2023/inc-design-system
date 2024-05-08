@@ -9,8 +9,6 @@ import { cn } from "../../lib/utils";
 export interface Props extends Component.PrimitiveDivProps {
   // extends VariantProps<typeof accordionVariants>
 
-  // data passed in to be an array
-  headers: string[];
   // only one can be opened at a time?
   single?: boolean;
   disabled?: boolean;
@@ -20,7 +18,6 @@ export interface Props extends Component.PrimitiveDivProps {
 const Accordion = ({
   single = false,
   disabled = false,
-  headers,
   children,
 }: Props) => {
   const childrenArray = React.Children.toArray(children);
