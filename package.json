@@ -185,6 +185,11 @@
       "types": "./dist/src/components/Toast/Toast.d.ts",
       "require": "./dist/src/components/Toast/Toast.js",
       "import": "./dist/src/components/Toast/Toast.js"
+    },
+    "./sheet": {
+      "types": "./dist/src/components/Sheet/Sheet.d.ts",
+      "require": "./dist/src/components/Sheet/Sheet.js",
+      "import": "./dist/src/components/Sheet/Sheet.js"
     }
   },
   "files": [
