@@ -1,5 +1,17 @@
 # inc-design-system
 
+## 1.2.4
+
+### Patch Changes
+
+- fix: remove unused headers prop for accordion component which caused typescript error
+
+## 1.2.3
+
+### Patch Changes
+
+- feat: export all Accordion related sub-components. This includes Accordion, AccordionContent, AccordionItem and AccordionTrigger.
+
 ## 1.2.2
 
 ### Patch Changes
