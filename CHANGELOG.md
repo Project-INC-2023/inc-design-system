@@ -1,5 +1,11 @@
 # inc-design-system
 
+## 1.4.0
+
+### Minor Changes
+
+- feat: add Sheet component and its sub-components. This includes Sheet, SheetPortal, SheetOverlay, SheetTrigger, SheetClose and SheetContent
+
 ## 1.3.0
 
 ### Minor Changes
