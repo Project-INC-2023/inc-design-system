@@ -1,6 +1,6 @@
 {
   "name": "inc-design-system",
-  "version": "1.2.1",
+  "version": "1.4.0",
   "author": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -180,6 +180,16 @@
       "types": "./dist/src/components/Table/Table.d.ts",
       "require": "./dist/src/components/Table/Table.js",
       "import": "./dist/src/components/Table/Table.js"
+    },
+    "./toast": {
+      "types": "./dist/src/components/Toast/Toast.d.ts",
+      "require": "./dist/src/components/Toast/Toast.js",
+      "import": "./dist/src/components/Toast/Toast.js"
+    },
+    "./sheet": {
+      "types": "./dist/src/components/Sheet/Sheet.d.ts",
+      "require": "./dist/src/components/Sheet/Sheet.js",
+      "import": "./dist/src/components/Sheet/Sheet.js"
     }
   },
   "files": [
@@ -211,7 +221,8 @@
     "date-fns": "^3.6.0",
     "react": "^18.2.0",
     "react-day-picker": "^8.10.1",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sonner": "^1.4.41"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",

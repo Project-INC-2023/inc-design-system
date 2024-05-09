@@ -1,5 +1,35 @@
 # inc-design-system
 
+## 1.4.0
+
+### Minor Changes
+
+- feat: add Sheet component and its sub-components. This includes Sheet, SheetPortal, SheetOverlay, SheetTrigger, SheetClose and SheetContent
+
+## 1.3.0
+
+### Minor Changes
+
+- feat: add Toast component
+
+## 1.2.4
+
+### Patch Changes
+
+- fix: remove unused headers prop for accordion component which caused typescript error
+
+## 1.2.3
+
+### Patch Changes
+
+- feat: export all Accordion related sub-components. This includes Accordion, AccordionContent, AccordionItem and AccordionTrigger.
+
+## 1.2.2
+
+### Patch Changes
+
+- feat: Usage of Accodion has changed such that each item needs to be enclosed by an accordionItem. Now, users do not need to pass in any headers props etc. Accordian children will be displayed using AccordianItem.
+
 ## 1.2.1
 
 ### Patch Changes
