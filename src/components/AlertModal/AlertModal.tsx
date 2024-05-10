@@ -1,5 +1,5 @@
-import React, {forwardRef} from "react";
-import* as AlertDialog from "@radix-ui/react-alert-dialog";
+import React, { forwardRef } from "react";
+import * as AlertDialog from "@radix-ui/react-alert-dialog";
 import { cn } from "@/lib/utils";
 import { Info, CircleX, CircleAlert, CircleCheck, X } from "lucide-react";
 
@@ -16,9 +16,11 @@ export interface AlertModalActionProps
   className?: string;
 }
 
-export interface AlertModalCancelProps extends AlertDialog.AlertDialogCancelProps, React.HtmlHTMLAttributes<HTMLButtonElement>{
-  children: React.ReactNode
-  className?: string
+export interface AlertModalCancelProps
+  extends AlertDialog.AlertDialogCancelProps,
+    React.HtmlHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+  className?: string;
 }
 
 export interface AlertModalContentProps
@@ -38,6 +40,15 @@ export interface AlertModalTriggerProps
   className?: string;
 }
 
+export interface AlertModalTitleProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    AlertDialog.AlertDialogTitleProps {
+  children: React.ReactNode;
+  className?: string;
+  description?: string;
+  status?: "success" | "error" | "warning" | "info";
+}
+
 export const AlertModal = ({ children, ...props }: AlertModalProps) => {
   return <AlertDialog.Root {...props}>{children}</AlertDialog.Root>;
 };
@@ -54,15 +65,22 @@ export const AlertModalAction = ({
   );
 };
 
-export const AlertModalCancel = ({children, className, ...props}: AlertModalCancelProps) => {
+export const AlertModalCancel = ({
+  children,
+  className,
+  ...props
+}: AlertModalCancelProps) => {
   return (
     <AlertDialog.Cancel asChild {...props} className={cn(className)}>
       {children}
     </AlertDialog.Cancel>
-  )
-}
+  );
+};
 
-export const AlertModalContent = forwardRef<HTMLDivElement, AlertModalContentProps>(
+export const AlertModalContent = forwardRef<
+  HTMLDivElement,
+  AlertModalContentProps
+>(
   (
     { children, title, description, className, status, ...props },
     forwardedRef
@@ -95,7 +113,7 @@ export const AlertModalContent = forwardRef<HTMLDivElement, AlertModalContentPro
             className
           )}
         >
-          {title && (
+          {/* {title && (
             <AlertDialog.Title className="text-text-default text-lg font-bold flex flex-row items-center">
               {status && <div className="mr-2">{getStatusIcon(status)}</div>}
               {title}
@@ -113,7 +131,7 @@ export const AlertModalContent = forwardRef<HTMLDivElement, AlertModalContentPro
               )}
               {description}
             </AlertDialog.Description>
-          )}
+          )} */}
 
           {children}
         </AlertDialog.Content>
@@ -122,8 +140,56 @@ export const AlertModalContent = forwardRef<HTMLDivElement, AlertModalContentPro
   }
 );
 
+export const AlertModalTitle = forwardRef<HTMLDivElement, AlertModalTitleProps>(
+  ({ children, className, description, status, ...props }, forwardedRef) => {
+    const getStatusIcon = (
+      status: "success" | "error" | "warning" | "info" | undefined
+    ): React.ReactNode => {
+      switch (status) {
+        case "success":
+          return <CircleCheck className="text-success text-sm" />;
+        case "error":
+          return <CircleX className="text-danger text-sm" />;
+        case "warning":
+          return <CircleAlert className="text-warning text-sm" />;
+        case "info":
+          return <Info className="text-info text-sm" />;
+        default:
+          return null;
+      }
+    };
 
-export const AlertModalTrigger = ({ children, className, ...props }: AlertModalTriggerProps) => {
-  return <AlertDialog.Trigger className={cn(className, "")} {...props} asChild>{children}</AlertDialog.Trigger>;
+    return (
+      <div>
+        <AlertDialog.Title className="text-text-default text-lg font-bold flex flex-row items-center">
+          {status && <div className="mr-2">{getStatusIcon(status)}</div>}
+          {children}
+        </AlertDialog.Title>
+        {description && (
+          <AlertDialog.Description
+            className={cn(
+              "text-mauve11 mt-0.5 mb-5 text-sm text-grey-400 leading-normal flex flex-row items-center"
+            )}
+          >
+            {status && (
+              <div className="mr-2 invisible">{getStatusIcon(status)}</div>
+            )}
+            {description}
+          </AlertDialog.Description>
+        )}
+      </div>
+    );
+  }
+);
+
+export const AlertModalTrigger = ({
+  children,
+  className,
+  ...props
+}: AlertModalTriggerProps) => {
+  return (
+    <AlertDialog.Trigger className={cn(className, "")} {...props} asChild>
+      {children}
+    </AlertDialog.Trigger>
+  );
 };
-
