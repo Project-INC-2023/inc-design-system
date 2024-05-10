@@ -208,6 +208,7 @@
   "peerDependencies": {
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "^1.0.5",
+    "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-hover-card": "^1.0.7",
@@ -217,12 +218,12 @@
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.0",
     "@tanstack/react-virtual": "^3.4.0",
-    "@radix-ui/react-avatar": "^1.0.4",
     "date-fns": "^3.6.0",
     "react": "^18.2.0",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18.2.0",
-    "sonner": "^1.4.41"
+    "sonner": "^1.4.41",
+    "tailwindcss-animate": "^1.0.7"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
