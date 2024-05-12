@@ -36,7 +36,7 @@ const PopoverContent = React.forwardRef<
       )}
       {...props}
     >
-      <PopoverPrimitive.Arrow offset={10} style={{ fill: "white" }} />
+      <PopoverPrimitive.Arrow offset={10} className="bg-inherit" />
       {/* Render the content here */}
       {props.children}
     </PopoverPrimitive.Content>
