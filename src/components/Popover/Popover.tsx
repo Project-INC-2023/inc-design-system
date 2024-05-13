@@ -31,12 +31,12 @@ const PopoverContent = React.forwardRef<
       align={align}
       sideOffset={sideOffset}
       className={cn(
-        "rounded-lg border border-slate-100 bg-background text-text-default p-5 w-64 shadow-md outline-none",
+        "rounded-lg border border-slate-100 bg-background p-5 w-64 shadow-md outline-none",
         className
       )}
       {...props}
     >
-      <PopoverPrimitive.Arrow offset={10} className="bg-inherit" />
+      <PopoverPrimitive.Arrow offset={10} className="bg-inherit text-inherit" />
       {/* Render the content here */}
       {props.children}
     </PopoverPrimitive.Content>
