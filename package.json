@@ -191,10 +191,10 @@
       "require": "./dist/src/components/Sheet/Sheet.js",
       "import": "./dist/src/components/Sheet/Sheet.js"
     },
-    "./progressBar": {
-      "types": "./dist/src/components/ProgressBar/ProgressBar.d.ts",
-      "require": "./dist/src/components/ProgressBar/ProgressBar.js",
-      "import": "./dist/src/components/ProgressBar/ProgressBar.js"
+    "./progress": {
+      "types": "./dist/src/components/Progress/Progress.d.ts",
+      "require": "./dist/src/components/Progress/Progress.js",
+      "import": "./dist/src/components/Progress/Progress.js"
     }
   },
   "files": [
