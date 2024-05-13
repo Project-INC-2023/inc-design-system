@@ -258,7 +258,7 @@ const MultiSelect = ({
       <div className="relative mt-2">
         {open && selectables.length > 0 ? (
           <div
-            className={`absolute w-full z-10 top-0 rounded-md border bg-popover text-text-default shadow-md outline-none animate-in max-h-96 overflow-y-auto inc-design-system-select-content ${
+            className={`absolute w-full z-10 top-0 rounded-md border bg-background text-text-default shadow-md outline-none animate-in max-h-96 overflow-y-auto inc-design-system-select-content ${
               disabled ? "cursor-not-allowed opacity-50" : ""
             }`}
             style={{
