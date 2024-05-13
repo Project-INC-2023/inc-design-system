@@ -1,5 +1,12 @@
 # inc-design-system
 
+## 1.4.1
+
+### Patch Changes
+
+- style: change MultiSelect dropdown background colour
+- refactor: change Modal and AlertModal components usage. Added ModalTitle and AlertModalTitle components for better user experience and customisability with the Modal and AlertModal components
+
 ## 1.4.0
 
 ### Minor Changes
