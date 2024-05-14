@@ -195,6 +195,11 @@
       "types": "./dist/src/components/Progress/Progress.d.ts",
       "require": "./dist/src/components/Progress/Progress.js",
       "import": "./dist/src/components/Progress/Progress.js"
+    },
+    "./resultPage": {
+      "types": "./dist/src/components/ResultPage/ResultPage.d.ts",
+      "require": "./dist/src/components/ResultPage/ResultPage.js",
+      "import": "./dist/src/components/ResultPage/ResultPage.js"
     }
   },
   "files": [
