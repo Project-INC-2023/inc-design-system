@@ -36,7 +36,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 
     return (
       <>
-        {containerClassName && showCharCount ? (
+        {showCharCount ? (
           <div className={cn(["flex flex-col", containerClassName])}>
             <textarea
               onChange={handleChange}
