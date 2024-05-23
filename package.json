@@ -200,10 +200,21 @@
       "types": "./dist/src/components/ResultPage/ResultPage.d.ts",
       "require": "./dist/src/components/ResultPage/ResultPage.js",
       "import": "./dist/src/components/ResultPage/ResultPage.js"
-    }, "./indicator": {
+    },
+    "./indicator": {
       "types": "./dist/src/components/Indicator/Indicator.d.ts",
       "require": "./dist/src/components/Indicator/Indicator.js",
       "import": "./dist/src/components/Indicator/Indicator.js"
+    },
+    "./rowScrollableList": {
+      "types": "./dist/src/components/List/RowScrollableList/RowScrollableList.d.ts",
+      "require": "./dist/src/components/List/RowScrollableList/RowScrollableList.js",
+      "import": "./dist/src/components/List/RowScrollableList/RowScrollableList.js"
+    },
+    "./columnScrollableList": {
+      "types": "./dist/src/components/List/ColumnScrollableList/ColumnScrollableList.d.ts",
+      "require": "./dist/src/components/List/ColumnScrollableList/ColumnScrollableList.js",
+      "import": "./dist/src/components/List/ColumnScrollableList/ColumnScrollableList.js"
     }
   },
   "files": [
