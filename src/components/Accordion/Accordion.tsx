@@ -9,8 +9,6 @@ import { cn } from "../../lib/utils";
 export interface Props extends Component.PrimitiveDivProps {
   // extends VariantProps<typeof accordionVariants>
 
-  // data passed in to be an array
-  headers: string[];
   // only one can be opened at a time?
   single?: boolean;
   disabled?: boolean;
@@ -20,7 +18,6 @@ export interface Props extends Component.PrimitiveDivProps {
 const Accordion = ({
   single = false,
   disabled = false,
-  headers,
   children,
 }: Props) => {
   const childrenArray = React.Children.toArray(children);
@@ -31,23 +28,7 @@ const Accordion = ({
       className="rounded-lg  border-1 border-grey-200"
       disabled={disabled}
     >
-
-      {headers.length == childrenArray.length ? (
-        headers?.map((item: string, index) => {
-          return (
-            <AccordionItem key={item} value={item}>
-              <AccordionTrigger className="disabled:opacity-50 disabled:cursor-not-allowed">
-                {/* props.icon && {props.icon} */}
-                {item}
-              </AccordionTrigger>
-
-              <AccordionContent>{childrenArray[index]}</AccordionContent>
-            </AccordionItem>
-          );
-        })
-      ) : (
-        <div>Number of headers do not much number of children.</div>
-      )}
+      {children}
     </Component.Root>
   );
 };
@@ -124,4 +105,4 @@ const AccordionContent = React.forwardRef<
   </Component.Content>
 ));
 
-export default Accordion;
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };

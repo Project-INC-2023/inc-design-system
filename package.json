@@ -1,6 +1,6 @@
 {
   "name": "inc-design-system",
-  "version": "0.0.0",
+  "version": "1.4.1",
   "author": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -132,9 +132,9 @@
       "import": "./dist/src/components/Card/Card.js"
     },
     "./modal": {
-      "types": "./dist/src/components/Modal/modal.d.ts",
-      "require": "./dist/src/components/Modal/modal.js",
-      "import": "./dist/src/components/Modal/modal.js"
+      "types": "./dist/src/components/Modal/Modal.d.ts",
+      "require": "./dist/src/components/Modal/Modal.js",
+      "import": "./dist/src/components/Modal/Modal.js"
     },
     "./hoverCard": {
       "types": "./dist/src/components/HoverCard/HoverCard.d.ts",
@@ -145,12 +145,65 @@
       "types": "./dist/src/components/AlertModal/AlertModal.d.ts",
       "require": "./dist/src/components/AlertModal/AlertModal.js",
       "import": "./dist/src/components/AlertModal/AlertModal.js"
-      
     },
-    "./scrollarea":{
-      "types": "./dist/src/components/ScrollArea/ScrollArea.d.ts",
-      "require": "./dist/src/components/ScrollArea/ScrollArea.js",
-      "import": "./dist/src/components/ScrollArea/ScrollArea.js"
+    "./timePicker": {
+      "types": "./dist/src/components/TimePicker/TimePicker.d.ts",
+      "require": "./dist/src/components/TimePicker/TimePicker.js",
+      "import": "./dist/src/components/TimePicker/TimePicker.js"
+    },
+    "./indivTimePicker": {
+      "types": "./dist/src/components/IndividualTimepicker/time-picker-demo.d.ts",
+      "require": "./dist/src/components/TimePicker/time-picker-demo.js",
+      "import": "./dist/src/components/TimePicker/time-picker-demo.js"
+    },
+    "./indivTimePicker12": {
+      "types": "./dist/src/components/IndividualTimepicker/time-picker-12hour-demo.d.ts",
+      "require": "./dist/src/components/TimePicker/time-picker-12hour-demo.js",
+      "import": "./dist/src/components/TimePicker/time-picker-12hour-demo.js"
+    },
+    "./calendar": {
+      "types": "./dist/src/components/Calendar/Calendar.d.ts",
+      "require": "./dist/src/components/Calendar/Calendar.js",
+      "import": "./dist/src/components/Calendar/Calendar.js"
+    },
+    "./datePicker": {
+      "types": "./dist/src/components/DatePicker/DatePicker.d.ts",
+      "require": "./dist/src/components/DatePicker/DatePicker.js",
+      "import": "./dist/src/components/DatePicker/DatePicker.js"
+    },
+    "./avatar": {
+      "types": "./dist/src/components/Avatar/Avatar.d.ts",
+      "require": "./dist/src/components/Avatar/Avatar.js",
+      "import": "./dist/src/components/Avatar/Avatar.js"
+    },
+    "./table": {
+      "types": "./dist/src/components/Table/Table.d.ts",
+      "require": "./dist/src/components/Table/Table.js",
+      "import": "./dist/src/components/Table/Table.js"
+    },
+    "./toast": {
+      "types": "./dist/src/components/Toast/Toast.d.ts",
+      "require": "./dist/src/components/Toast/Toast.js",
+      "import": "./dist/src/components/Toast/Toast.js"
+    },
+    "./sheet": {
+      "types": "./dist/src/components/Sheet/Sheet.d.ts",
+      "require": "./dist/src/components/Sheet/Sheet.js",
+      "import": "./dist/src/components/Sheet/Sheet.js"
+    },
+    "./progress": {
+      "types": "./dist/src/components/Progress/Progress.d.ts",
+      "require": "./dist/src/components/Progress/Progress.js",
+      "import": "./dist/src/components/Progress/Progress.js"
+    },
+    "./resultPage": {
+      "types": "./dist/src/components/ResultPage/ResultPage.d.ts",
+      "require": "./dist/src/components/ResultPage/ResultPage.js",
+      "import": "./dist/src/components/ResultPage/ResultPage.js"
+    }, "./indicator": {
+      "types": "./dist/src/components/Indicator/Indicator.d.ts",
+      "require": "./dist/src/components/Indicator/Indicator.js",
+      "import": "./dist/src/components/Indicator/Indicator.js"
     }
   },
   "files": [
@@ -169,6 +222,7 @@
   "peerDependencies": {
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "^1.0.5",
+    "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-hover-card": "^1.0.7",
@@ -178,10 +232,14 @@
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.0",
     "@tanstack/react-virtual": "^3.4.0",
+    "date-fns": "^3.6.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-day-picker": "^8.10.1",
+    "react-dom": "^18.2.0",
+    "sonner": "^1.4.41"
   },
   "dependencies": {
+    "@radix-ui/react-progress": "^1.0.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "lucide-react": "^0.367.0",
