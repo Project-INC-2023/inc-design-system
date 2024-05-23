@@ -160,7 +160,7 @@ export const AlertModalTitle = forwardRef<HTMLDivElement, AlertModalTitleProps>(
     };
 
     return (
-      <div>
+      <div className={className}>
         <AlertDialog.Title className="text-text-default text-lg font-bold flex flex-row items-center">
           {status && <div className="mr-2">{getStatusIcon(status)}</div>}
           {children}

@@ -7,11 +7,6 @@ export interface BadgeProps
   extends VariantProps<typeof badgeVariants>,
     React.HTMLAttributes<HTMLDivElement> {
   className?: string;
-  count?: number;
-  showZero?: boolean;
-  dot?: boolean;
-  overflowCount?: number;
-  processing?: boolean;
   children?: React.ReactNode;
 }
 
@@ -23,6 +18,10 @@ const badgeVariants = cva("text-xs rounded-full", {
       error: "bg-danger text-white",
       warning: "bg-warning text-white",
       info: "bg-info text-white",
+      primary: "bg-primary text-white",
+      secondary: "bg-secondary text-white",
+      translucent: "bg-grey-300 text-grey-500",
+      primaryAccent: " bg-primary-accent text-primary",
     },
     size: {
       default: "",
@@ -38,66 +37,23 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
   (
     {
       children,
-      count = 0,
-      dot = false,
-      showZero = false,
-      overflowCount = 1000,
-      processing = false,
       className,
-      variant
+      variant,
     },
     forwardRef
   ) => {
     return (
-      <>
+    
         <div
           className={cn(
+            badgeVariants({ variant }),
             className,
-            "inline-block relative",
-            // visually better but kinda changes the whole padding
-            dot ? "p-1" : "p-3"
+            "items-center justify-center inline-flex rounded-lg border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-grey-200 focus:ring-offset-2"
           )}
         >
-          <div>
-            <div
-              className={cn(
-                className,
-                "static",
-                count === 0 && !showZero && !dot && !processing
-                  ? "hidden"
-                  : "block"
-              )}
-            >
-              {processing ? (
-                <div className="absolute top-0 right-0 ">
-                  <Clock4 size={20} />
-                </div>
-              ) : (
-                <div
-                  className={cn(
-                    badgeVariants({ variant }),
-                    "absolute top-0 right-0 text-sm flex items-center justify-center",
-                    dot
-                      ? "w-3 h-3"
-                      : count > 999
-                      ? "w-11 h-6"
-                      : count > 99
-                      ? "w-8 h-6"
-                      : "w-6 h-6"
-                  )}
-                >
-                  {dot
-                    ? null
-                    : count > overflowCount
-                    ? `${overflowCount}+`
-                    : count}
-                </div>
-              )}
-            </div>
-            <div className="inline-block">{children}</div>
-          </div>
+          {children}
         </div>
-      </>
+     
     );
   }
 );

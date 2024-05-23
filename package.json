@@ -200,6 +200,10 @@
       "types": "./dist/src/components/ResultPage/ResultPage.d.ts",
       "require": "./dist/src/components/ResultPage/ResultPage.js",
       "import": "./dist/src/components/ResultPage/ResultPage.js"
+    }, "./indicator": {
+      "types": "./dist/src/components/Indicator/Indicator.d.ts",
+      "require": "./dist/src/components/Indicator/Indicator.js",
+      "import": "./dist/src/components/Indicator/Indicator.js"
     }
   },
   "files": [

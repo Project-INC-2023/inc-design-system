@@ -97,7 +97,7 @@ const ModalTitle = React.forwardRef<HTMLDivElement, ModalTitleProps>(
     };
 
     return (
-      <div>
+      <div className={className}>
         <Dialog.Title className="text-text-default text-lg font-bold flex flex-row items-center">
           {status && <div className="mr-2">{getStatusIcon(status)}</div>}
           {children}
