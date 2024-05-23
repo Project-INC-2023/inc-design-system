@@ -71,11 +71,6 @@
       "require": "./dist/src/components/Accordion/Accordion.js",
       "import": "./dist/src/components/Accordion/Accordion.js"
     },
-    "./scrollableList": {
-      "types": "./dist/src/components/List/ScrollableList/ScrollableList.d.ts",
-      "require": "./dist/src/components/List/ScrollableList/ScrollableList.js",
-      "import": "./dist/src/components/List/ScrollableList/ScrollableList.js"
-    },
     "./paginatedList": {
       "types": "./dist/src/components/List/PaginatedList/PaginatedList.d.ts",
       "require": "./dist/src/components/List/PaginatedList/PaginatedList.js",
