@@ -1,6 +1,6 @@
 {
   "name": "inc-design-system",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "author": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -200,7 +200,8 @@
       "types": "./dist/src/components/ResultPage/ResultPage.d.ts",
       "require": "./dist/src/components/ResultPage/ResultPage.js",
       "import": "./dist/src/components/ResultPage/ResultPage.js"
-    }, "./indicator": {
+    },
+    "./indicator": {
       "types": "./dist/src/components/Indicator/Indicator.d.ts",
       "require": "./dist/src/components/Indicator/Indicator.js",
       "import": "./dist/src/components/Indicator/Indicator.js"
