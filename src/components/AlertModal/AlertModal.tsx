@@ -30,6 +30,7 @@ export interface AlertModalContentProps
   title?: string;
   description?: string;
   className?: string;
+  overlayClassName: string;
   status?: "success" | "error" | "warning" | "info";
 }
 
@@ -82,29 +83,25 @@ export const AlertModalContent = forwardRef<
   AlertModalContentProps
 >(
   (
-    { children, title, description, className, status, ...props },
+    {
+      children,
+      title,
+      description,
+      className,
+      status,
+      overlayClassName,
+      ...props
+    },
     forwardedRef
   ) => {
-    const getStatusIcon = (
-      status: "success" | "error" | "warning" | "info" | undefined
-    ): React.ReactNode => {
-      switch (status) {
-        case "success":
-          return <CircleCheck className="text-success text-sm" />;
-        case "error":
-          return <CircleX className="text-danger text-sm" />;
-        case "warning":
-          return <CircleAlert className="text-warning text-sm" />;
-        case "info":
-          return <Info className="text-info text-sm" />;
-        default:
-          return null;
-      }
-    };
-
     return (
       <AlertDialog.Portal>
-        <AlertDialog.Overlay className=" bg-black bg-opacity-20 data-[state=open]:animate-overlayShow fixed inset-0" />
+        <AlertDialog.Overlay
+          className={cn(
+            overlayClassName,
+            " bg-black bg-opacity-20 data-[state=open]:animate-overlayShow fixed inset-0"
+          )}
+        />
         <AlertDialog.Content
           {...props}
           ref={forwardedRef}
@@ -113,26 +110,6 @@ export const AlertModalContent = forwardRef<
             className
           )}
         >
-          {/* {title && (
-            <AlertDialog.Title className="text-text-default text-lg font-bold flex flex-row items-center">
-              {status && <div className="mr-2">{getStatusIcon(status)}</div>}
-              {title}
-            </AlertDialog.Title>
-          )}
-
-          {description && (
-            <AlertDialog.Description
-              className={cn(
-                "text-mauve11 mt-0.5 mb-5 text-sm text-grey-400 leading-normal flex flex-row items-center"
-              )}
-            >
-              {status && (
-                <div className="mr-2 invisible">{getStatusIcon(status)}</div>
-              )}
-              {description}
-            </AlertDialog.Description>
-          )} */}
-
           {children}
         </AlertDialog.Content>
       </AlertDialog.Portal>
