@@ -12,11 +12,19 @@ export interface ScrollableAreaProps extends Component.ScrollAreaProps {
 const ScrollArea = ({
   children,
   className,
-  width,
+  width = "400px",
+  height = "230px",
   ...props
 }: ScrollableAreaProps) => {
   return (
-    <Component.Root className="w-[100px] h-[225px] rounded overflow-hidden shadow-[0_2px_10px] shadow-blackA4 bg-yellow">
+    <Component.Root
+      className={cn(
+        "rounded overflow-hidden shadow-[0_2px_10px] shadow-blackA4 bg-yellow",
+        className
+      )}
+      style={{ width: `${width}px`, height: `${height}px` }}
+      {...props}
+    >
       <Component.Viewport className="w-full h-full rounded">
         {children}
       </Component.Viewport>
