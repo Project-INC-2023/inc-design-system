@@ -20,7 +20,7 @@ interface ModalContentProps
   extends Dialog.DialogPortalProps,
     React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
-  overlayClassName: string;
+  overlayClassName?: string;
   closable?: boolean;
 }
 

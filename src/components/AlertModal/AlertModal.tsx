@@ -30,7 +30,7 @@ export interface AlertModalContentProps
   title?: string;
   description?: string;
   className?: string;
-  overlayClassName: string;
+  overlayClassName?: string;
   status?: "success" | "error" | "warning" | "info";
 }
 
