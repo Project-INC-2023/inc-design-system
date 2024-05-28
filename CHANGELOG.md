@@ -1,5 +1,11 @@
 # inc-design-system
 
+## 1.5.1
+
+### Patch Changes
+
+- feat: Add overlayClassName prop to AlertModalContent and ModalContent components
+
 ## 1.5.0
 
 ### Minor Changes
