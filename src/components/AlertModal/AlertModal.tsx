@@ -98,8 +98,8 @@ export const AlertModalContent = forwardRef<
       <AlertDialog.Portal>
         <AlertDialog.Overlay
           className={cn(
-            overlayClassName,
-            " bg-black bg-opacity-20 data-[state=open]:animate-overlayShow fixed inset-0"
+            "bg-black bg-opacity-20 data-[state=open]:animate-overlayShow fixed inset-0",
+            overlayClassName
           )}
         />
         <AlertDialog.Content
