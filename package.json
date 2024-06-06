@@ -71,11 +71,6 @@
       "require": "./dist/src/components/Accordion/Accordion.js",
       "import": "./dist/src/components/Accordion/Accordion.js"
     },
-    "./scrollableList": {
-      "types": "./dist/src/components/List/ScrollableList/ScrollableList.d.ts",
-      "require": "./dist/src/components/List/ScrollableList/ScrollableList.js",
-      "import": "./dist/src/components/List/ScrollableList/ScrollableList.js"
-    },
     "./paginatedList": {
       "types": "./dist/src/components/List/PaginatedList/PaginatedList.d.ts",
       "require": "./dist/src/components/List/PaginatedList/PaginatedList.js",
@@ -205,6 +200,16 @@
       "types": "./dist/src/components/Indicator/Indicator.d.ts",
       "require": "./dist/src/components/Indicator/Indicator.js",
       "import": "./dist/src/components/Indicator/Indicator.js"
+    },
+    "./rowScrollableList": {
+      "types": "./dist/src/components/List/RowScrollableList/RowScrollableList.d.ts",
+      "require": "./dist/src/components/List/RowScrollableList/RowScrollableList.js",
+      "import": "./dist/src/components/List/RowScrollableList/RowScrollableList.js"
+    },
+    "./columnScrollableList": {
+      "types": "./dist/src/components/List/ColumnScrollableList/ColumnScrollableList.d.ts",
+      "require": "./dist/src/components/List/ColumnScrollableList/ColumnScrollableList.js",
+      "import": "./dist/src/components/List/ColumnScrollableList/ColumnScrollableList.js"
     }
   },
   "files": [
