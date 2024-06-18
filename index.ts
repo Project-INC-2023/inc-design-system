@@ -30,6 +30,9 @@ export default plugin(
         width: "4px",
         padding: "5px 2px",
       },
+      ".animate-spin-button-spinner": {
+        animation: "spinner 1s linear infinite",
+      },
     };
 
     addUtilities(newUtilities);
@@ -83,6 +86,10 @@ export default plugin(
       },
 
       keyframes: {
+        spinner: {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
         slideDown: {
           from: { height: "0px" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -104,10 +111,11 @@ export default plugin(
         },
       },
       animation: {
+        spinner: "spin 1s linear infinite",
         slideDown: "slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1)",
         slideUp: "slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1)",
-        overlayShow: 'overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
-        contentShow: 'contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+        overlayShow: "overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)",
+        contentShow: "contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)",
       },
     },
   }
