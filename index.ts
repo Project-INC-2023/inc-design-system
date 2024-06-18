@@ -81,9 +81,9 @@ export default plugin(
 
           // Background colors
           background: "#FDFCFF",
-          // Animation for Accordion
+
         },
-      },
+      }, 
 
       keyframes: {
         spinner: {
@@ -111,7 +111,7 @@ export default plugin(
         },
       },
       animation: {
-        spinner: "spin 1s linear infinite",
+        spinner: "spinner 1s linear infinite",
         slideDown: "slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1)",
         slideUp: "slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1)",
         overlayShow: "overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)",
