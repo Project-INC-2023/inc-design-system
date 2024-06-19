@@ -30,9 +30,6 @@ export default plugin(
         width: "4px",
         padding: "5px 2px",
       },
-      ".animate-spin-button-spinner": {
-        animation: "spinner 1s linear infinite",
-      },
     };
 
     addUtilities(newUtilities);
