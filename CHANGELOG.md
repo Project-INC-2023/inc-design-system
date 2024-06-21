@@ -1,5 +1,14 @@
 # inc-design-system
 
+## 1.5.2
+
+### Patch Changes
+
+- Updated Card component to use forwardRef for improved performance.
+- Split ScrollableList component into different orientations.
+- Added isLoading prop to Button component.
+- Fixed animation issues across various components.
+
 ## 1.5.1
 
 ### Patch Changes
