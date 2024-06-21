@@ -1,5 +1,11 @@
 # inc-design-system
 
+## 1.5.3
+
+### Patch Changes
+
+- Fixed build issues
+
 ## 1.5.2
 
 ### Patch Changes
