@@ -1,5 +1,11 @@
 # inc-design-system
 
+## 1.5.4
+
+### Patch Changes
+
+- fix: modal component forwardref without ref
+
 ## 1.5.3
 
 ### Patch Changes
