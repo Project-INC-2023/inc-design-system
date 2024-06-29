@@ -20,6 +20,7 @@ interface ModalContentProps
   extends Dialog.DialogPortalProps,
     React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
+  overlayClassName?: string;
   closable?: boolean;
 }
 
@@ -52,10 +53,13 @@ const ModalCloser = ({ children, className, ...props }: ModalCloserProps) => {
 };
 
 const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
-  ({ children, className, closable, ...props }, forwardedRef) => {
+  (
+    { children, className, closable, overlayClassName, ...props },
+    forwardedRef
+  ) => {
     return (
       <Dialog.Portal>
-        <Dialog.Overlay className=" bg-black bg-opacity-20 data-[state=open]:animate-overlayShow fixed inset-0" />
+        <Dialog.Overlay className={cn(" bg-black bg-opacity-20 data-[state=open]:animate-overlayShow fixed inset-0", overlayClassName)} />
         <Dialog.Content
           {...props}
           ref={forwardedRef}
@@ -97,7 +101,7 @@ const ModalTitle = React.forwardRef<HTMLDivElement, ModalTitleProps>(
     };
 
     return (
-      <div>
+      <div className={className}>
         <Dialog.Title className="text-text-default text-lg font-bold flex flex-row items-center">
           {status && <div className="mr-2">{getStatusIcon(status)}</div>}
           {children}
