@@ -52,13 +52,13 @@ const ModalCloser = ({ children, className, ...props }: ModalCloserProps) => {
 };
 
 const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
-  ({ children, className, closable, ...props }, ref) => {
+  ({ children, className, closable, ...props }, forwardedRef) => {
     return (
       <Dialog.Portal>
-        <Dialog.Overlay className="bg-black bg-opacity-20 data-[state=open]:animate-overlayShow fixed inset-0" />
+        <Dialog.Overlay className=" bg-black bg-opacity-20 data-[state=open]:animate-overlayShow fixed inset-0" />
         <Dialog.Content
           {...props}
-          ref={ref}
+          ref={forwardedRef}
           className={cn(
             "data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[80vw] translate-x-[-50%] translate-y-[-50%] rounded-lg bg-white p-6 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none",
             className
@@ -69,6 +69,7 @@ const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
               <X className="text-grey-400 text-sm m-2" />
             </Dialog.Close>
           )}
+
           {children}
         </Dialog.Content>
       </Dialog.Portal>
@@ -76,10 +77,8 @@ const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
   }
 );
 
-ModalContent.displayName = "ModalContent";
-
-const ModalTitle = forwardRef<HTMLDivElement, ModalTitleProps>(
-  ({ children, className, description, status, ...props }, ref) => {
+const ModalTitle = React.forwardRef<HTMLDivElement, ModalTitleProps>(
+  ({ children, className, description, status, ...props }) => {
     const getStatusIcon = (
       status: "success" | "error" | "warning" | "info" | undefined
     ): React.ReactNode => {
@@ -98,7 +97,7 @@ const ModalTitle = forwardRef<HTMLDivElement, ModalTitleProps>(
     };
 
     return (
-      <div ref={ref}>
+      <div>
         <Dialog.Title className="text-text-default text-lg font-bold flex flex-row items-center">
           {status && <div className="mr-2">{getStatusIcon(status)}</div>}
           {children}
@@ -119,8 +118,6 @@ const ModalTitle = forwardRef<HTMLDivElement, ModalTitleProps>(
     );
   }
 );
-
-ModalTitle.displayName = "ModalTitle";
 
 const ModalTrigger = ({ children, className, ...props }: ModalTriggerProps) => {
   return (
