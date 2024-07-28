@@ -21,7 +21,9 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     },
     ref
   ) => {
-    const [text, setText] = React.useState<string>(props.value as string ?? "");
+    const [text, setText] = React.useState<string>(
+      (props.value as string) ?? ""
+    );
 
     const handleHeight = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       e.target.style.height = "auto";
@@ -42,6 +44,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             <textarea
               className={cn(
                 "min-h-[60px] text-sm p-2 flex w-full text-text-default rounded-lg bg-white border border-grey-300 focus-visible:border-primary-active  placeholder:text-grey-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-grey-100",
+                "ring-offset-primary-accent focus-visible:ring-2 ring-transparent focus-visible:ring-offset-2 transition-colors",
                 autosize && "resize-none",
                 className
               )}
@@ -61,6 +64,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             onChange={handleChange}
             className={cn(
               "min-h-[60px] text-sm p-2 flex w-full text-text-default rounded-lg bg-white border border-grey-300 focus-visible:border-primary-active  placeholder:text-grey-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-grey-100",
+              "ring-offset-primary-accent focus-visible:ring-2 ring-transparent focus-visible:ring-offset-2 transition-colors",
               autosize && "resize-none",
               className
             )}
