@@ -6,7 +6,10 @@ import { VariantProps, cva } from "class-variance-authority";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 const inputVariants = cva(
-  "flex w-full text-text-default rounded-lg bg-white border border-grey-300 focus-visible:border-primary-active ring-offset-primary-accent placeholder:text-grey-400 focus-visible:outline-none focus-visible:ring-2 ring-transparent focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:bg-grey-100",
+  cn([
+    "flex w-full text-text-default rounded-lg bg-white border border-grey-300 focus-visible:border-primary-active placeholder:text-grey-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-grey-100",
+    "ring-offset-primary-accent focus-visible:ring-2 ring-transparent focus-visible:ring-offset-2 transition-colors",
+  ]),
   {
     variants: {
       variant: {
