@@ -13,6 +13,7 @@ import {
   PopoverProps,
   PopoverTrigger,
 } from "../Popover/Popover";
+import { type Matcher } from "react-day-picker";
 
 interface DatePickerProps extends PopoverProps {
   /**
@@ -43,6 +44,52 @@ interface DatePickerProps extends PopoverProps {
    * @default ""
    */
   buttonClassName?: string;
+  /**
+   * The `disabledDays` prop allows you to specify which days should be disabled in the calendar.
+   * You can disable days in various ways:
+   *
+   * - Disable specific dates:
+   *   @example disabledDays={[new Date(2022, 0, 1), new Date(2022, 0, 2)]} // Disable January 1st and 2nd, 2022
+   *   @example disabledDays={new Date(2022, 0, 1)} // Disable January 1st, 2022
+   *   @example disabledDays={[]} // Disable no dates
+   *   @example disabledDays={undefined} // Disable no dates
+   *
+   * - Disable dates before and/or after specific dates:
+   *   @example
+   *   disabled={{
+   *     before: new Date("2024-4-1"),
+   *     after: new Date("2024-4-15"),
+   *   }} // Disable dates before April 1st, 2024 and after April 15th, 2024
+   *  @example
+   *  disabled={{
+   *     before: new Date()
+   *   }} // Disable dates before today
+   *  @example
+   *  disabled={{
+   *     after: new Date()
+   *   }} // Disable dates after today
+   *
+   * - Disable specific days of the week (e.g., Sundays and Saturdays):
+   *   @example
+   *   disabled={{
+   *     daysOfWeek: [0, 6],
+   *   }} // Disable Sundays and Saturdays
+   *
+   * - Combine disabling specific days of the week and specific dates:
+   *   @example
+   *   disabled={{
+   *     daysOfWeek: [0, 6],
+   *     dates: [new Date("2024-4-30"), new Date("2024-4-23")],
+   *   }} // Disable Sundays, Saturdays, April 30th, 2024, and April 23rd, 2024
+   *
+   * - Disable a range of dates:
+   *   @example
+   *   disabled={{
+   *     from: new Date("2024-4-1"),
+   *     to: new Date("2024-4-15"),
+   *   }} // Disable dates from April 1st, 2024 to April 15th, 2024
+   */
+  disabledDays?: Matcher | Matcher[] | undefined;
 }
 
 interface RangeDatePickerProps extends PopoverProps {
@@ -79,6 +126,44 @@ interface RangeDatePickerProps extends PopoverProps {
    * @default "End date"
    */
   endDatePlaceholder?: string;
+  /**
+   * The `disabledDays` prop allows you to specify which days should be disabled in the calendar.
+   * You can disable days in various ways:
+   *
+   * - Disable specific dates:
+   *   @example disabledDays={[new Date(2022, 0, 1), new Date(2022, 0, 2)]} // Disable January 1st and 2nd, 2022
+   *   @example disabledDays={new Date(2022, 0, 1)} // Disable January 1st, 2022
+   *   @example disabledDays={[]} // Disable no dates
+   *   @example disabledDays={undefined} // Disable no dates
+   *
+   * - Disable dates before and/or after specific dates:
+   *   @example
+   *   disabled={{
+   *     before: new Date("2024-4-1"),
+   *     after: new Date("2024-4-15"),
+   *   }} // Disable dates before April 1st, 2024 and after April 15th, 2024
+   *
+   * - Disable specific days of the week (e.g., Sundays and Saturdays):
+   *   @example
+   *   disabled={{
+   *     daysOfWeek: [0, 6],
+   *   }} // Disable Sundays and Saturdays
+   *
+   * - Combine disabling specific days of the week and specific dates:
+   *   @example
+   *   disabled={{
+   *     daysOfWeek: [0, 6],
+   *     dates: [new Date("2024-4-30"), new Date("2024-4-23")],
+   *   }} // Disable Sundays, Saturdays, April 30th, 2024, and April 23rd, 2024
+   *
+   * - Disable a range of dates:
+   *   @example
+   *   disabled={{
+   *     from: new Date("2024-4-1"),
+   *     to: new Date("2024-4-15"),
+   *   }} // Disable dates from April 1st, 2024 to April 15th, 2024
+   */
+  disabledDays?: Matcher | Matcher[] | undefined;
 }
 
 const DatePicker = ({
@@ -88,6 +173,7 @@ const DatePicker = ({
   placeholder = "Pick a date",
   disabled = false,
   buttonClassName,
+  disabledDays,
   ...props
 }: DatePickerProps) => {
   const [date, setDate] = React.useState<Date | undefined>(selected);
@@ -121,6 +207,7 @@ const DatePicker = ({
           mode="single"
           selected={date}
           onSelect={handleOnSelect}
+          disabled={disabledDays}
           initialFocus
         />
       </PopoverContent>
