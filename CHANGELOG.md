@@ -1,5 +1,11 @@
 # inc-design-system
 
+## 1.5.6
+
+### Patch Changes
+
+- - feat: update build config
+
 ## 1.5.5
 
 ### Patch Changes
