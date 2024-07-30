@@ -1,5 +1,19 @@
 # inc-design-system
 
+## 1.5.5
+
+### Patch Changes
+
+- Fix: Fixed various issues to improve stability and performance for Toast component
+- Feat: Added animations to enhance user experience for Input and Textarea components
+- Style: Ensured consistent styling between Input and Textarea components for a unified look and feel.
+
+## 1.5.4
+
+### Patch Changes
+
+- fix: modal component forwardref without ref
+
 ## 1.5.3
 
 ### Patch Changes

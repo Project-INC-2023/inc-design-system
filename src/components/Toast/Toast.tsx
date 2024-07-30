@@ -289,10 +289,13 @@ const Loading = ({ t, promise, opts }: LoadingProps) => {
   const [state, setState] = React.useState<"success" | "error">("success");
 
   const initLoading = async () => {
+    setLoading(true);
     try {
-      let data = promise;
+      let data = null;
 
       if (typeof promise === "function") data = await promise();
+
+      if (typeof promise === "object") data = await promise;
 
       if (typeof opts?.success === "function") {
         setFinalChildren(opts.success(data));
