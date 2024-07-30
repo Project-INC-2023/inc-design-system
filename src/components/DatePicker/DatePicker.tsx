@@ -32,6 +32,14 @@ interface BaseDatePickerProps extends PopoverProps {
    */
   buttonClassName?: string;
   /**
+   * A string that is added to the class list of the dropdown element in the date picker. This can be used to add custom styles to the dropdown.
+   */
+  dropDownClassName?: string;
+  /**
+   * A string that is added to the class list of the calendar element in the date picker. This can be used to add custom styles to the calendar.
+   */
+  calendarClassName?: string;
+  /**
    * The `disabledDates` prop allows you to specify which days should be disabled in the calendar.
    * You can disable days in various ways:
    *
@@ -123,6 +131,8 @@ const DatePicker = ({
   placeholder = "Pick a date",
   disabled = false,
   buttonClassName,
+  dropDownClassName,
+  calendarClassName,
   disabledDates,
   ...props
 }: DatePickerProps) => {
@@ -151,8 +161,9 @@ const DatePicker = ({
           {date ? format(date, "PPP") : <span>{placeholder}</span>}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-auto p-0 z-50">
+      <PopoverContent className={cn("w-auto p-0 z-50", dropDownClassName)}>
         <Calendar
+          className={calendarClassName}
           today={today}
           mode="single"
           selected={date}
@@ -171,6 +182,8 @@ const RangeDatePicker = ({
   onSelect,
   disabled = false,
   buttonClassName,
+  dropDownClassName,
+  calendarClassName,
   startDatePlaceholder = "Start date",
   endDatePlaceholder = "End date",
   disabledDates,
@@ -212,8 +225,9 @@ const RangeDatePicker = ({
           )}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-auto p-0 z-50">
+      <PopoverContent className={cn("w-auto p-0 z-50", dropDownClassName)}>
         <Calendar
+          className={calendarClassName}
           today={today}
           mode="range"
           selected={date}
