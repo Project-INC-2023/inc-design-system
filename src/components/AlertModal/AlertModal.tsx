@@ -149,7 +149,7 @@ export const AlertModalTitle = forwardRef<HTMLDivElement, AlertModalTitleProps>(
             )}
           >
             {status && (
-              <div className="mr-2 invisible">{getStatusIcon(status)}</div>
+              <span className="mr-2 invisible">{getStatusIcon(status)}</span>
             )}
             {description}
           </AlertDialog.Description>
