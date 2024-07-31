@@ -59,7 +59,12 @@ const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
   ) => {
     return (
       <Dialog.Portal>
-        <Dialog.Overlay className={cn(" bg-black bg-opacity-20 data-[state=open]:animate-overlayShow fixed inset-0", overlayClassName)} />
+        <Dialog.Overlay
+          className={cn(
+            " bg-black bg-opacity-20 data-[state=open]:animate-overlayShow fixed inset-0",
+            overlayClassName
+          )}
+        />
         <Dialog.Content
           {...props}
           ref={forwardedRef}
@@ -113,7 +118,7 @@ const ModalTitle = React.forwardRef<HTMLDivElement, ModalTitleProps>(
             )}
           >
             {status && (
-              <div className="mr-2 invisible">{getStatusIcon(status)}</div>
+              <span className="mr-2 invisible">{getStatusIcon(status)}</span>
             )}
             {description}
           </Dialog.Description>

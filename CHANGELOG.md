@@ -1,5 +1,19 @@
 # inc-design-system
 
+## 1.5.7
+
+### Patch Changes
+
+- feat: add disabledDays, dropDownClassName and calendarClassName props to DatePicker
+
+  fix: replace div with span in AlertModalTitle and ModalTitle to Avoid HTML Nesting Warning
+
+## 1.5.6
+
+### Patch Changes
+
+- feat: update build config
+
 ## 1.5.5
 
 ### Patch Changes
