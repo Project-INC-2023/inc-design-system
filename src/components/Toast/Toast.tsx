@@ -266,11 +266,8 @@ const toast = {
     );
   },
 
-  promise: async (
-    promise: PromiseT,
-    opts?: Omit<PromiseData, "description">
-  ) => {
-    sonner.custom((t) => <Loading t={t} promise={promise} opts={opts} />, {
+  promise: (promise: PromiseT, opts?: Omit<PromiseData, "description">) => {
+    return sonner.custom((t) => <Loading t={t} promise={promise} opts={opts} />, {
       ...opts,
       description: "",
     });
@@ -286,7 +283,7 @@ type LoadingProps = {
 const Loading = ({ t, promise, opts }: LoadingProps) => {
   const [isLoading, setLoading] = React.useState(true);
   const [finalChildren, setFinalChildren] = React.useState<React.ReactNode>();
-  const [state, setState] = React.useState<"success" | "error">("success");
+  const [state, setState] = React.useState<"success" | "error" | null>(null);
 
   const initLoading = async () => {
     setLoading(true);
@@ -302,11 +299,15 @@ const Loading = ({ t, promise, opts }: LoadingProps) => {
         return;
       }
 
-      setFinalChildren(opts?.success ? opts.success : "Success");
-      setState("success");
+      if (opts?.success) {
+        setFinalChildren(opts.success);
+        setState("success");
+      }
     } catch (error) {
-      setFinalChildren(opts?.error ? opts.error : "Error");
-      setState("error");
+      if (opts?.error) {
+        setFinalChildren(opts.error);
+        setState("error");
+      }
     } finally {
       setLoading(false);
     }
@@ -327,49 +328,53 @@ const Loading = ({ t, promise, opts }: LoadingProps) => {
           </p>
         </div>
       ) : (
-        <div
-          className={cn([
-            "w-[356px] border border-success border-opacity-10 shadow-md bg-success-accent px-2 py-3 rounded-lg flex flex-col",
-            state === "error" && "bg-danger-accent border-danger",
-          ])}
-        >
-          <div className={cn(["flex space-x-2 items-center", opts?.className])}>
-            {state === "success" && (
-              <CircleCheckIcon
-                className={"w-5 h-5 fill-success stroke-success-accent"}
-              />
-            )}
+        state !== null && (
+          <div
+            className={cn([
+              "w-[356px] border border-success border-opacity-10 shadow-md bg-success-accent px-2 py-3 rounded-lg flex flex-col",
+              state === "error" && "bg-danger-accent border-danger",
+            ])}
+          >
+            <div
+              className={cn(["flex space-x-2 items-center", opts?.className])}
+            >
+              {state === "success" && (
+                <CircleCheckIcon
+                  className={"w-5 h-5 fill-success stroke-success-accent"}
+                />
+              )}
 
-            {state === "error" && (
-              <CircleXIcon
-                className={"w-5 h-5 fill-danger stroke-danger-accent"}
-              />
-            )}
+              {state === "error" && (
+                <CircleXIcon
+                  className={"w-5 h-5 fill-danger stroke-danger-accent"}
+                />
+              )}
 
-            {React.isValidElement(finalChildren) ? (
-              <div className="w-full">{finalChildren}</div>
-            ) : (
-              <div
-                className={cn([
-                  "w-full text-success text-sm",
-                  state === "error" && "text-danger",
-                ])}
-              >
-                {finalChildren}
-              </div>
-            )}
+              {React.isValidElement(finalChildren) ? (
+                <div className="w-full">{finalChildren}</div>
+              ) : (
+                <div
+                  className={cn([
+                    "w-full text-success text-sm",
+                    state === "error" && "text-danger",
+                  ])}
+                >
+                  {finalChildren}
+                </div>
+              )}
 
-            {opts?.closeButton && (
-              <XIcon
-                className="w-4 h-4 fill-grey-400 stroke-gray-400 cursor-pointer"
-                onClick={() => {
-                  if (opts.onDismiss) opts.onDismiss(t as unknown as ToastT);
-                  sonner.dismiss(t);
-                }}
-              />
-            )}
+              {opts?.closeButton && (
+                <XIcon
+                  className="w-4 h-4 fill-grey-400 stroke-gray-400 cursor-pointer"
+                  onClick={() => {
+                    if (opts.onDismiss) opts.onDismiss(t as unknown as ToastT);
+                    sonner.dismiss(t);
+                  }}
+                />
+              )}
+            </div>
           </div>
-        </div>
+        )
       )}
     </>
   );

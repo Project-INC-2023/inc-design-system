@@ -32,11 +32,11 @@ export interface InputProps
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, variant, type, ...props }, ref) => {
     const [show, setShow] = React.useState<boolean>(false);
-    const VisibilityIcon = show ? EyeOffIcon : EyeIcon;
+    const VisibilityIcon = show ? EyeIcon : EyeOffIcon;
     return (
       <div className="relative">
         <input
-          type={show ? type : "text"}
+          type={show ? "text" : type}
           className={cn(inputVariants({ variant, className }))}
           ref={ref}
           {...props}
