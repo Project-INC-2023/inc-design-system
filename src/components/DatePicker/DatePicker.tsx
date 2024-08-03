@@ -144,6 +144,10 @@ const DatePicker = ({
     onSelect?.(date);
   };
 
+  React.useEffect(() => {
+    setDate(selected);
+  }, [selected]);
+
   return (
     <Popover {...props}>
       <PopoverTrigger disabled={disabled} asChild>
@@ -198,6 +202,10 @@ const RangeDatePicker = ({
     setDate(date);
     onSelect?.(date);
   };
+
+  React.useEffect(() => {
+    setDate(selected);
+  }, [selected]);
 
   return (
     <Popover {...props}>
