@@ -54,7 +54,7 @@ const Calendar = ({
         disabled={isSameMonth(today, monthDisplayed)}
         onClick={() => setMonthDisplayed(today)}
         variant="text"
-        className="text-primary hover:text-primary-accent focus:text-primary-accent hover:bg-transparent"
+        className="text-primary hover:text-primary/60 focus:text-primary/60 hover:bg-transparent"
       >
         Today
       </Button>
