@@ -1,5 +1,22 @@
 # inc-design-system
 
+## 1.5.8
+
+### Patch Changes
+
+- **Enhancements:**
+
+  - **DatePicker & RangeDatePicker:**
+    - Added `useEffect` hooks to ensure the components react to external changes in the selected date state.
+  - **Calendar Component:**
+    - Updated the hover effect color for the "Today" button for better UI consistency.
+
+  **Bug Fixes:**
+
+  - **Input Component:**
+    - Corrected the logic for displaying the visibility icon in the Input component. The icon now correctly reflects the `show` state.
+    - Added a missing `containerClassName` prop to allow modification of the parent `div` when using input type `password`.
+
 ## 1.5.7
 
 ### Patch Changes
