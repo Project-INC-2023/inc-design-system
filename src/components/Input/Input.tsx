@@ -27,34 +27,46 @@ export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     VariantProps<typeof inputVariants> {
   type?: "password";
+  containerClassName?: string;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, variant, type, ...props }, ref) => {
+  ({ className, containerClassName, variant, type, ...props }, ref) => {
     const [show, setShow] = React.useState<boolean>(false);
-    const VisibilityIcon = show ? EyeOffIcon : EyeIcon;
+    const VisibilityIcon = show ? EyeIcon : EyeOffIcon;
     return (
-      <div className="relative">
-        <input
-          type={show ? type : "text"}
-          className={cn(inputVariants({ variant, className }))}
-          ref={ref}
-          {...props}
-        />
-        {type === "password" && (
-          <button
-            onClick={() => setShow(!show)}
-            className="absolute right-2 -translate-y-1/2 top-1/2"
-          >
-            <VisibilityIcon
-              className={cn([
-                "stroke-2 stroke-grey-500",
-                variant === "sm" ? "h-[14px]" : "h-[16px]",
-              ])}
+      <>
+        {type === "password" ? (
+          <div className={cn(["relative", containerClassName])}>
+            <input
+              type={show ? "text" : type}
+              className={cn(inputVariants({ variant, className }))}
+              ref={ref}
+              {...props}
             />
-          </button>
+            {type === "password" && (
+              <button
+                onClick={() => setShow(!show)}
+                className="absolute right-2 -translate-y-1/2 top-1/2"
+              >
+                <VisibilityIcon
+                  className={cn([
+                    "stroke-2 stroke-grey-500",
+                    variant === "sm" ? "h-[14px]" : "h-[16px]",
+                  ])}
+                />
+              </button>
+            )}
+          </div>
+        ) : (
+          <input
+            type={show ? "text" : type}
+            className={cn(inputVariants({ variant, className }))}
+            ref={ref}
+            {...props}
+          />
         )}
-      </div>
+      </>
     );
   }
 );

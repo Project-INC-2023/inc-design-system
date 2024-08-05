@@ -1,6 +1,6 @@
 {
   "name": "inc-design-system",
-  "version": "1.5.7",
+  "version": "1.5.8",
   "author": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
